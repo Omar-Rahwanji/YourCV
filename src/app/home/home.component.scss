@@ -19,6 +19,11 @@
       line-height: 50px;
     }
   }
+  .animated-image{
+    border-radius: 5%;
+    border-top-left-radius: 30%;
+    border-bottom-right-radius: 30%;
+  }
 }
 ::ng-deep #home_hero__particles {
   width: 100%;
