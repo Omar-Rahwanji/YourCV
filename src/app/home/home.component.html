@@ -4,7 +4,7 @@
     <div class="grid grid-cols-12 gap-x-6">
       <div class="col-span-12 md:col-span-6 lg:col-span-7 xxl:col-span-6 ll-hero-text">
         <h1 class="lg:mt-12 text-white font-bold">
-          At <span class="text-yellow-400">YourCV</span>, we offer you the world's best cv templates for helping you getting your first job like a pro!
+          At <span class="text-yellow-400">{{this.homeService.data.title}}</span>, {{this.homeService.data.headLine}}
         </h1>
         <div class="flex flex-wrap items-center mt-4">
           <div class="inline-block mr-5">Offer:</div>
@@ -14,7 +14,7 @@
         </div>
       </div>
       <div class="col-span-12 md:col-span-6 lg:col-span-5 xxl:col-span-6 ll-image mt-10 md:mt-0">
-        <img class="ml-auto animated-image shadow" src="assets/images/animated-image.gif" alt="Hero" />
+        <img class="ml-auto animated-image shadow" src="{{this.homeService.data.background}}" alt="Hero" />
       </div>
     </div>
   </div>
