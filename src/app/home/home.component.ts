@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { HomeService } from '../service/home.service';
-import { NgxSpinnerService } from "ngx-spinner";
 
 @Component({
   selector: 'll-home',

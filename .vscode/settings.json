@@ -4,5 +4,8 @@
     "editor.tabSize": 2,
     "[typescript]": {
         "editor.defaultFormatter": "vscode.typescript-language-features"
+    },
+    "[json]": {
+        "editor.defaultFormatter": "HookyQR.beautify"
     }
 }
