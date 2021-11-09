@@ -1,52 +1,47 @@
-<div class="pt-52 pb-32 bg-gray-100 text-center">
+<div class="pt-52 pb-32 bg-gray-100 text-center"  style="background-size: cover; background-repeat: no-repeat; background-image:url('{{AboutUsService.AboutUsData[7].centerImage}}')" >
   <div class="container">
-    <h3>About Us</h3>
-    <nav class="breadcrumb flex justify-center items-center">
-      <a class="px-1 mr-3 text-gray-500 hover:text-black" [routerLink]="'/'">Home</a>
-      <a class="px-1" href="javascript:void(0)" class="text-accent">About</a>
+    <a style="background-color: rgb(255, 255, 255); border-radius: 5px;">&nbsp;&nbsp;About Us&nbsp;&nbsp;</a>
+    <nav class="breadcrumb flex justify-center items-center" >
+
+    <div style="background-color: rgb(255, 255, 255); border-radius: 5px;">
+      <a class="px-1 mr-3 text-gray-500 hover:text-black" [routerLink]="'/'">&nbsp;Home&nbsp;</a>
+      <a class="px-1" href="javascript:void(0)" class="text-accent">About&nbsp;</a>
+    </div>
     </nav>
   </div>
 </div>
 <!-- About  -->
 <div class="pt-20 pb-24">
   <div class="container">
-    <h1 class="about__title">We are a team of experience professional in their Specialties</h1>
+    <h1 class="about__title"> {{AboutUsService.AboutUsData[0].information}} </h1>
+    <h3 class="about__title"> {{AboutUsService.AboutUsData[1].information}} </h3>
     <div class="flex flex-wrap mt-5 xl:mt-8">
       <div class="lg:w-1/2 lg:order-last">
-        <a href="javascript:void(0)" class="about__img relative block">
-          <img src="assets/images/about.jpg" alt="About" />
-          <mat-icon class="absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2">play_circle_filled</mat-icon>
-        </a>
+        <!-- <a href="javascript:void(0)" class="about__img relative block"> -->
+          <img src="{{AboutUsService.AboutUsData[7].sideImage}}" alt="About" />
+          <!-- <mat-icon class="absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2">play_circle_filled</mat-icon> -->
+        <!-- </a> -->
       </div>
       <div class="lg:w-1/2 lg:pr-10 mt-8 lg:mt-0 about__text">
         <p class="mb-3">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur optio, perferendis, magnam accusantium reiciendis assumenda
-          repellat in qui, quos dolor esse quibusdam illum necessitatibus labore officia tempore modi placeat dolores!
+          {{AboutUsService.AboutUsData[2].information}} 
         </p>
         <p class="mb-3">
-          lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-          enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure doley.
+          {{AboutUsService.AboutUsData[3].information}}  
         </p>
-        <div class="experience grid grid-cols-3 gap-4 mt-6 xl:mt-16">
-          <div class="experience__item">
-            <h2>367+</h2>
-            <h6 class="font-semibold">SUCCEEDED PROJECT</h6>
-          </div>
-          <div class="experience__item">
-            <h2>500+</h2>
-            <h6 class="font-semibold">HAPPY CLIENT</h6>
-          </div>
-          <div class="experience__item">
-            <h2>12+</h2>
-            <h6 class="font-semibold">YEARS OF EXPERIENCE</h6>
-          </div>
-        </div>
+        <p class="mb-3">
+          {{AboutUsService.AboutUsData[4].information}}  
+        </p>
+        <h3 class="about__title"> {{AboutUsService.AboutUsData[5].information}} </h3>
+        <p class="mb-3">
+          {{AboutUsService.AboutUsData[6].information}}  
+        </p>
       </div>
     </div>
   </div>
 </div>
 <!-- Team -->
-<div class="py-24 bg-gray-200">
+<!-- <div class="py-24 bg-gray-200">
   <div class="container">
     <div>
       <h2 class="text-center mb-8">Our Creative, a Rockin' Team</h2>
@@ -322,4 +317,4 @@
       </div>
     </div>
   </div>
-</div>
+</div> -->
