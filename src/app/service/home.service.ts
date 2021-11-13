@@ -10,12 +10,27 @@ import { ToastrService } from 'ngx-toastr';
 export class HomeService {
 
   constructor(private spinner: NgxSpinnerService, private toastr: ToastrService, private http: HttpClient, private router: Router) { }
-  data: any = {};
+  webPageData: any = {};
+  testimonialData: any = {};
 
   getWebPageData(): void {
     this.spinner.show();
     this.http.get('http://localhost:3456/api/WebsiteInfo/GetWebsiteInfoByRoleId/2').subscribe((result: any) => {
-      this.data = result;
+      this.webPageData = result;
+      this.toastr.success('Data Retrieved Successfuly 😁');
+      this.spinner.hide();
+    },
+      error => {
+        this.spinner.hide();
+        this.toastr.error('Failed Retrieving Data 😐');
+      }
+    );
+  }
+
+  getTestimonialData(){
+    this.spinner.show();
+    this.http.get('http://localhost:3456/api/Testimonial/GetAllTestimonial').subscribe((result: any) => {
+      this.testimonialData = result;
       this.toastr.success('Data Retrieved Successfuly 😁');
       this.spinner.hide();
     },

@@ -14,7 +14,7 @@ export class HeaderComponent implements OnInit {
   isScrolled: boolean;
   menuList = [];
   isLessThenLargeDevice;
-  logo=this.homeService.data.logo;
+  logo=this.homeService.webPageData.logo;
   constructor(private breakpointObserver: BreakpointObserver,public homeService:HomeService) {}
 
   ngOnInit(): void {
