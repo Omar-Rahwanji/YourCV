@@ -6,7 +6,6 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
-import { FeatureComponent } from './components/feature/feature.component';
 import { MatCardModule } from '@angular/material/card';
 import { BaseLayoutComponent } from './components/layouts/base-layout/base-layout.component';
 import { LoaderComponent } from './components/loader/loader.component';
@@ -28,8 +27,8 @@ const commonModules = [
 ];
 
 @NgModule({
-  declarations: [HeaderComponent, FooterComponent, FeatureComponent, BaseLayoutComponent, LoaderComponent, SidenavComponent],
+  declarations: [HeaderComponent, FooterComponent, BaseLayoutComponent, LoaderComponent, SidenavComponent],
   imports: [CommonModule, RouterModule, ...commonModules],
-  exports: [HeaderComponent, FooterComponent, BaseLayoutComponent, FeatureComponent, LoaderComponent, SidenavComponent, ...commonModules]
+  exports: [HeaderComponent, FooterComponent, BaseLayoutComponent, LoaderComponent, SidenavComponent, ...commonModules]
 })
 export class SharedModule {}
