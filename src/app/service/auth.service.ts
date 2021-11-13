@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpRequest } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { NgxSpinnerService } from 'ngx-spinner';
@@ -9,10 +9,29 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class AuthService {
   constructor(private spinner: NgxSpinnerService, private toastr: ToastrService, private http: HttpClient, private router: Router) { }
-  registerCustomer(customerData:any){
-    customerData = {...customerData,RoleId: 2};
+  //Service  
+  customerImage: any;
+  uploadAttachment(file: FormData) {
+
+    const headerDict = {
+      'Content-Type': 'application/json',
+      'Accept': 'application/json'
+    }
+    const requestOptions = {
+      headers: new HttpHeaders(headerDict),
+    };
+    this.http.post('http://localhost:3456/api/User/upload', file).subscribe((data: any) => {
+      this.customerImage = data.personalPhoto;
+      // localStorage.setItem('image',this.display_image)
+    }, err => {
+    })
+  }
+
+
+  registerCustomer(customerData: any) {
+    customerData = { ...customerData, Country: 'Jordan', City: 'Amman', RoleId: 2, PersonalPhoto: this.customerImage };
     this.spinner.show();
-    this.http.post('http://localhost:3456/api/User/CreateUser',customerData).subscribe((result: any) => {
+    this.http.post('http://localhost:3456/api/User/CreateUser', customerData).subscribe((result: any) => {
       this.toastr.success('Successfuly Registered 😁');
       this.spinner.hide();
       this.router.navigate(['auth/login']);

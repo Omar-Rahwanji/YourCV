@@ -30,24 +30,14 @@
           </div>
 
           <div class="mb-4 mt-6">
-            <label class="block text-gray-700 text-sm font-semibold mb-2" for="phoneNumber"> Phone Number </label>
-            <input matInput formControlName="phoneNumber"
-              class="text-sm appearance-none rounded w-full py-2 px-3 text-gray-700 bg-gray-100 leading-tight focus:outline-none focus:shadow-outline h-10"
-              id="phoneNumber" type="text" placeholder="phone number" />
-            <mat-error *ngIf="registerForm.controls.phoneNumber.hasError('required')">
-              Phone Number is <strong>required</strong>
-            </mat-error>
-          </div>
-
-          <!-- <div class="mb-4 mt-6">
             <label class="block text-gray-700 text-sm font-semibold mb-2" for="personalPhoto"> Personal Photo </label>
-            <input matInput formControlName="personalPhoto"
+            <input matInput formControlName="personalPhoto" #file
               class="text-sm appearance-none rounded w-full py-2 px-3 text-gray-700 bg-gray-100 leading-tight focus:outline-none focus:shadow-outline h-10"
-              id="personalPhoto" type="text" placeholder="personal photo" />
+              id="personalPhoto" type="file" placeholder="personal photo" (change)="uploadFile(file.files)" />
             <mat-error *ngIf="registerForm.controls.personalPhoto.hasError('required')">
               Personal Photo is <strong>required</strong>
             </mat-error>
-          </div> -->
+          </div>
 
           <div class="mb-4 mt-6">
             <label class="block text-gray-700 text-sm font-semibold mb-2" for="email"> Email </label>
@@ -61,6 +51,17 @@
           </div>
 
           <div class="mb-4 mt-6">
+            <label class="block text-gray-700 text-sm font-semibold mb-2" for="username"> Username </label>
+            <input matInput formControlName="username"
+              class="text-sm appearance-none rounded w-full py-2 px-3 text-gray-700 bg-gray-100 leading-tight focus:outline-none focus:shadow-outline h-10"
+              id="username" type="text" placeholder="username" />
+            <mat-error *ngIf="registerForm.controls.username.hasError('required')">
+              Username is <strong>required</strong>
+            </mat-error>
+          </div>
+
+
+          <div class="mb-4 mt-6">
             <label class="block text-gray-700 text-sm font-semibold mb-2" for="password"> Password </label>
             <input matInput formControlName="password"
               class="text-sm appearance-none rounded w-full py-2 px-3 text-gray-700 bg-gray-100 leading-tight focus:outline-none focus:shadow-outline h-10"
@@ -70,7 +71,7 @@
             </mat-error>
           </div>
 
-          <!-- <div class="mb-4 mt-6">
+          <div class="mb-4 mt-6">
             <label class="block text-gray-700 text-sm font-semibold mb-2" for="confirmationPassword"> Confirmation
               Password </label>
             <input matInput formControlName="confirmationPassword"
@@ -79,12 +80,12 @@
             <mat-error *ngIf="registerForm.controls.confirmationPassword.value!=registerForm.controls.password.value">
               Confirmation Password should be <strong>identical</strong>
             </mat-error>
-          </div> -->
+          </div>
 
 
           <div class="flex items-center">
             <input id="remember_me" name="remember_me" type="checkbox"
-              class="h-4 w-4 text-indigo-600 focus:ring-indigo-500 border rounded" />
+              class="h-4 w-4 text-indigo-600 focus:ring-indigo-500 border rounded" required />
             <label for="remember_me" class="ml-2 block text-sm text-gray-900"> I agree with YourCV Terms and conditions.
             </label>
           </div>

@@ -11,9 +11,11 @@ export class SignupComponent implements OnInit {
   registerForm: FormGroup = new FormGroup({
     firstName: new FormControl('', [Validators.required]),
     lastName: new FormControl('', [Validators.required]),
-    phoneNumber: new FormControl('', [Validators.required]),
+    personalPhoto: new FormControl('', [Validators.required]),
     email: new FormControl('', [Validators.required, Validators.email]),
+    username: new FormControl('', [Validators.required]),
     password: new FormControl('', [Validators.required]),
+    confirmationPassword: new FormControl('', [Validators.required]),
   });
 
   constructor(private authService: AuthService) { }
@@ -21,7 +23,18 @@ export class SignupComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  uploadFile(files: any) {
+    if (files.length === 0) {
+      return;
+    }
+    let fileToUpload = <File>files[0];
+    const formData = new FormData();
+    formData.append('file', fileToUpload, fileToUpload.name);
+    this.authService.uploadAttachment(formData);
+  }
+
   registerCustomer() {
+    this.registerForm.removeControl('confirmationPassword');
     this.authService.registerCustomer(this.registerForm.value);
   }
 
