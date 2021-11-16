@@ -12,14 +12,6 @@ export class AboutComponent implements OnInit {
   constructor( public AboutUsService: AboutUsService , private http:HttpClientModule) { }
 
   ngOnInit(): void {
-    this.GetAboutUs();
-    // this.Getwebsiteinfo();
+    this.AboutUsService.getAllAboutUs()
   }
-
-  GetAboutUs(){
-    this.AboutUsService.getAllAboutUs().subscribe((result:any)=>{this.AboutUsService.AboutUsData=result});
-  }
-  // Getwebsiteinfo(){
-  //   this.AboutUsService.getAllWebsiteInfo().subscribe((result:any)=>{this.AboutUsService.websiteInfoData=result});
-  // }
 }

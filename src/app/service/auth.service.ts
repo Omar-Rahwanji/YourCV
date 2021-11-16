@@ -9,13 +9,16 @@ import { ToastrService } from 'ngx-toastr';
 // import { BehaviorSubject } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import {Auth} from '../models/auth/auth.module'
+import { HomeService } from './home.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
-  constructor(private spinner: NgxSpinnerService, private toastr: ToastrService, private http: HttpClient, private router: Router) { }
-  //Service  
+  constructor(private spinner: NgxSpinnerService, private toastr: ToastrService, private http: HttpClient, private router: Router, private homeService: HomeService) {
+    this.homeService.getWebPageData();
+  }
+
   customerImage: any;
   uploadAttachment(file: FormData) {
 
