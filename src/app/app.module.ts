@@ -5,9 +5,11 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SharedModule } from './shared/shared.module';
 import { NgxSkeletonLoaderModule } from 'ngx-skeleton-loader';
+import { ToastNoAnimationModule, ToastrModule } from 'ngx-toastr';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
 import {FormsModule,ReactiveFormsModule} from '@angular/forms';
 import { NgxSpinnerModule } from "ngx-spinner";
-import { ToastrModule } from 'ngx-toastr';
 import {HTTP_INTERCEPTORS} from '@angular/common/http'
 import { TokenInterceptor } from './interceptors/token.interceptor';
 
@@ -16,14 +18,16 @@ import { TokenInterceptor } from './interceptors/token.interceptor';
   declarations: [AppComponent],
   imports: [
     BrowserModule,
-    AppRoutingModule, 
-    BrowserAnimationsModule, 
-    SharedModule, 
+    AppRoutingModule,
+    BrowserAnimationsModule,
+    ToastrModule.forRoot(),
+    SharedModule,
     NgxSkeletonLoaderModule,
+    MatInputModule,
+    MatFormFieldModule,
     ReactiveFormsModule,
     FormsModule,
     NgxSpinnerModule,
-    ToastrModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent],  
