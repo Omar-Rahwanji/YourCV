@@ -1,6 +1,9 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AutthorizationGuard } from './autthorization.guard';
+import { DashboardModule } from './dashboard/dashboard.module';
 import { BaseLayoutComponent } from './shared/components/layouts/base-layout/base-layout.component';
+import {Role} from './enum/role.service'
 
 const baseLayoutRouting: Routes = [
   {
@@ -44,6 +47,14 @@ const routes: Routes = [
     path:'dashboard-admin',
     loadChildren:()=>import('./dashboard-admin/dashboard-admin.module').then(m=>m.DashboardAdminModule)
   }
+  {
+    loadChildren: () => DashboardModule,
+    canActivate:[AutthorizationGuard],
+    data:
+    {
+      expectedRole:[Role.Admin]
+    }
+  },
 ];
 
 @NgModule({

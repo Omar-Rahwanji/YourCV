@@ -1,0 +1,118 @@
+
+<h1 *ngIf="!isAddMode">Edit User</h1>
+<form [formGroup]="form" *ngFor="let info of UserProfile.data">
+    <div class="form-row col-10" style="margin-top: 50px;margin-bottom: 28px;">
+
+    
+        <!-- <input formControlName="roleId" ngModel="{{info.roleId}}" hidden>  -->
+
+    
+              </div>
+              <div class="w-16 h-16 rounded-full overflow-hidden shadow-md">
+				<img src="{{getImagePath(info.personalPhoto)}}" alt="" class="w-full h-full object-cover">
+			</div>
+            <div class="col-md-3">
+                <input type="file" #file placeholder="Choose Image" 
+                   formControlName="personalPhoto" (change)="uploadFile(file.files)" 
+                style="display:none;">
+                <button type="button" class="btn btn-success" 
+                (click)="file.click()">Upload Image</button>
+              </div>
+
+        <!-- User Meta Start -->
+        <div class="border bg-white mt-8 rounded-md">
+            <div class="flex p-4 bg-gray-200">
+                <h6 class="text-normal">Primary Information</h6>
+            </div>
+            <div class="flex flex-wrap p-4">
+                <div class="w-full sm:w-1/2">
+                    <div class="ll-dataset">
+                        <div class="ll-dataset__label">
+                            Email:
+                        </div>
+                        <input type="text" formControlName="email" ngModel="{{info.email}}" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.email.errors }" />
+                    </div>
+                    <div class="ll-dataset mt-4">
+                        <div class="ll-dataset__label">
+                            Number:
+                        </div>
+                        <input type="text" formControlName="phoneNumber" ngModel="{{info.phoneNumber}}" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.phoneNumber.errors }" />
+                    </div>
+                </div>
+                <div class="w-full sm:w-1/2 mt-4 sm:mt-0">
+                    <div class="ll-dataset">
+                        <div class="ll-dataset__label">
+                            Username:
+                        </div>
+                        <input type="text" formControlName="userName" ngModel="{{info.userName}}" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.userName.errors }" />
+                    </div>
+                <!-- 	<div class="ll-dataset mt-4">
+                        <div class="ll-dataset__label">
+                            Business Role:
+                        </div>
+                        <div class="ll-dataset__value">
+                            Buyer
+                        </div>
+                    </div> -->
+                </div>
+            </div>
+        </div>
+        <!-- User Meta End -->
+        <!-- User Meta Start -->
+        <div class="border bg-white mt-8 rounded-md">
+            <div class="flex p-4 bg-gray-200">
+                <h6 class="text-normal">Personal Information</h6>
+            <!-- 	<button class="text-blue-400 hover:text-accent ml-auto flex items-center">
+                    <mat-icon class="_edit_icon mr-2">edit</mat-icon>
+                    Edit</button> -->
+            </div>
+            <div class="flex flex-wrap p-4">
+                <div class="w-full sm:w-1/2">
+                    <div class="ll-dataset">
+                        <div class="ll-dataset__label">
+                            First Name:
+                        </div>
+                        <input type="text" formControlName="firstName" ngModel="{{info.firstName}}" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.firstName.errors }" />
+    
+                    </div>
+                    <div class="ll-dataset mt-4">
+                        <div class="ll-dataset__label">
+                            Last Name:
+                        </div>
+                        <input type="text" formControlName="lastName" ngModel="{{info.lastName}}" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.lastName.errors }" />
+    
+                    </div>
+                
+                    
+                </div>
+                <div class="w-full sm:w-1/2 mt-4 sm:mt-0">
+                
+                    <div class="ll-dataset mt-4">
+                        <div class="ll-dataset__label">
+                            City:
+                        </div>
+                        <input type="text" formControlName="city" ngModel="{{info.city}}" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.city.errors }" />
+    
+                    </div>
+                    <div class="ll-dataset mt-4">
+                        <div class="ll-dataset__label">
+                            Country:
+                        </div>
+                        <input type="text" formControlName="country" ngModel="{{info.country}}" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.country.errors }" />
+    
+                    </div>
+                
+                </div>
+            </div>
+        </div>
+   
+    <div class="form-group" style="margin-top: 25px;">
+        <button [disabled]="loading" class="btn btn-primary" (click)="updateUser()" style="background-color: #58B57D;color: white; width: 72px; height: 32px;">
+            <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
+            Update
+        </button>
+    </div>
+
+
+
+

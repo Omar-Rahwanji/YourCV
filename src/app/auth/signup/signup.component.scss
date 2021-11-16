@@ -29,3 +29,15 @@
     }
   }
 }
+
+.login__hero {
+  margin-bottom: 65%;
+}
+
+.submit-btn{
+  transition : background-color 0.5s;
+}
+
+.submit-btn:hover{
+  background-color: orange;
+}

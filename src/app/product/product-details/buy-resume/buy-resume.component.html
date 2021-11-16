@@ -1,0 +1,41 @@
+<h2 mat-dialog-title>Filling Resume Data</h2>
+<mat-dialog-content class="mat-typography w-96">
+
+  <form [formGroup]="paymentForm" (submit)="pay()">
+    <h1 class="text-2xl font-bold">Sign up</h1>
+
+    <div class="mb-4 mt-6">
+      <label class="block text-gray-700 text-sm font-semibold mb-2" for="creditCardNumber"> Your Credit card number </label>
+      <input matInput formControlName="creditCardNumber"
+        class="text-sm appearance-none rounded w-full py-2 px-3 text-gray-700 bg-gray-100 leading-tight focus:outline-none focus:shadow-outline h-10"
+        id="creditCardNumber" type="text" placeholder="credit card number" />
+      <mat-error *ngIf="paymentForm.controls.creditCardNumber.hasError('required')">
+        Card number is <strong>required</strong>
+      </mat-error>
+    </div>
+
+    <div class="mb-4 mt-6">
+      <label class="block text-gray-700 text-sm font-semibold mb-2" for="expiryDate"> Card expiry date </label>
+      <input matInput formControlName="expiryDate"
+        class="text-sm appearance-none rounded w-full py-2 px-3 text-gray-700 bg-gray-100 leading-tight focus:outline-none focus:shadow-outline h-10"
+        id="expiryDate" type="date" placeholder="expiry date" />
+      <mat-error *ngIf="paymentForm.controls.expiryDate.hasError('required')">
+        Card expiry date is <strong>required</strong>
+      </mat-error>
+    </div>
+
+    <div class="mb-4 mt-6">
+      <label class="block text-gray-700 text-sm font-semibold mb-2" for="ccvNumber"> Card CCV number </label>
+      <input matInput formControlName="ccvNumber"
+        class="text-sm appearance-none rounded w-full py-2 px-3 text-gray-700 bg-gray-100 leading-tight focus:outline-none focus:shadow-outline h-10"
+        id="ccvNumber" type="number" placeholder="card ccv number" />
+      <mat-error *ngIf="paymentForm.controls.ccvNumber.hasError('required')">
+        CCV number is <strong>required</strong>
+      </mat-error>
+    </div>
+    <mat-dialog-actions align="end">
+      <button mat-button mat-dialog-close>Cancel</button>
+      <button mat-button type="submit" [disabled]="!paymentForm.valid" mat-dialog-close="true">Pay</button>
+    </mat-dialog-actions>
+  </form>
+</mat-dialog-content>
