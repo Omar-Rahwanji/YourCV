@@ -17,17 +17,17 @@ export class HomeService {
     this.spinner.show();
     this.http.get('http://localhost:3456/api/WebsiteInfo/GetWebsiteInfoByRoleId/2').subscribe((result: any) => {
       this.webPageData = result;
-      // this.toastr.success('Data Retrieved Successfuly 😁');
+      this.toastr.success('Data Retrieved Successfuly 😁');
       this.spinner.hide();
     },
       error => {
         this.spinner.hide();
-        // this.toastr.error('Failed Retrieving Data 😐');
+        this.toastr.error('Failed Retrieving Data 😐');
       }
     );
   }
 
-  getTestimonialData(){
+  getTestimonialData() {
     this.spinner.show();
     this.http.get('http://localhost:3456/api/Testimonial/GetAllTestimonial').subscribe((result: any) => {
       this.testimonialData = result;

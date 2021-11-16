@@ -3,13 +3,16 @@ import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { ToastrService } from 'ngx-toastr';
+import { HomeService } from './home.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
-  constructor(private spinner: NgxSpinnerService, private toastr: ToastrService, private http: HttpClient, private router: Router) { }
-  //Service  
+  constructor(private spinner: NgxSpinnerService, private toastr: ToastrService, private http: HttpClient, private router: Router, private homeService: HomeService) {
+    this.homeService.getWebPageData();
+  }
+
   customerImage: any;
   uploadAttachment(file: FormData) {
 
