@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { ProfileUserService } from 'src/app/Service/profile-user.service';
 
 @Component({
   selector: 'll-dashboard-profile',
@@ -7,9 +9,27 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DashboardProfileComponent implements OnInit {
 
-  constructor() { }
+  @Input () id:number|undefined;
+@Input () firstName:string='N/A';
+@Input () lastName:string='N/A';
+@Input () email:string='N/A';
+@Input () userName:string='N/A';
+@Input () password:string|undefined;
+@Input () city:string='N/A';
+@Input () country:string='N/A';
+@Input () personalPhoto:string='N/A';
+@Input () roleId:number|undefined;
+@Input () role:string='N/A';
+  constructor(private router:Router,public UserProfile:ProfileUserService) { }
 
   ngOnInit(): void {
+    this.UserInfo(1);
   }
+  UserInfo(id:number){
+    debugger
+    this.UserProfile.getUserById(id)
+    
+  }
+
 
 }
