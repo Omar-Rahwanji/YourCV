@@ -16,4 +16,14 @@ export class ProductListComponent implements OnInit {
     this.productService.getProducts();
     this.isLoaded = true;
   }
+
+  searchResume(resumeName: any) {
+    resumeName=resumeName.toLowerCase();
+    this.productService.templateDocuments = this.productService.templateDocuments.filter((x) => x.name.toLowerCase().includes(resumeName));
+    console.log('searched');
+  }
+
+  reloadPage(){
+    window.location.reload();
+  }
 }
