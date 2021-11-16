@@ -11,6 +11,7 @@ export class AboutUsService {
   // websiteInfoData : any =[{}]
   
 getAllAboutUs(){
+  debugger
   return this.http.get("http://localhost:3456/api/AboutUs/GetAllAboutUs")
 }
 
