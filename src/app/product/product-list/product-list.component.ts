@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ProductService } from 'src/app/service/product.service';
 import { productsDB } from '../../shared/data/products';
 
 @Component({
@@ -9,13 +10,10 @@ import { productsDB } from '../../shared/data/products';
 export class ProductListComponent implements OnInit {
   isLoaded: boolean;
   advanceSearchExpanded: boolean = false;
-  products = [];
-  constructor() {}
+  constructor(public productService: ProductService) { }
 
   ngOnInit(): void {
-    setTimeout(() => {
-      this.products = productsDB.Product;
-      this.isLoaded = true
-    }, 8000)
+    this.productService.getProducts();
+    this.isLoaded = true;
   }
 }

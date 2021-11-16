@@ -8,9 +8,11 @@ import { ProductListComponent } from './product-list/product-list.component';
 import { ProductDetailsComponent } from './product-details/product-details.component';
 import { ProductHeroComponent } from './product-list/product-hero/product-hero.component';
 import { NgxSkeletonLoaderModule } from 'ngx-skeleton-loader';
+import { CreateResumeComponent } from './product-details/create-resume/create-resume.component';
+import { BuyResumeComponent } from './product-details/buy-resume/buy-resume.component';
 
 @NgModule({
-  declarations: [ProductListComponent, ProductDetailsComponent, ProductHeroComponent],
+  declarations: [ProductListComponent, ProductDetailsComponent, ProductHeroComponent, CreateResumeComponent, BuyResumeComponent],
   imports: [
     CommonModule,
     ProductRoutingModule,

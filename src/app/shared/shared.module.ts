@@ -16,6 +16,7 @@ import { SidenavComponent } from './components/sidenav/sidenav.component';
 import { HttpClientModule } from '@angular/common/http';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import { ReactiveFormsModule } from '@angular/forms';
+import {MatDialogModule} from '@angular/material/dialog';
 
 const commonModules = [
   HttpClientModule,
@@ -27,12 +28,13 @@ const commonModules = [
   MatSidenavModule,
   MatListModule,
   MatFormFieldModule,
-  ReactiveFormsModule
+  ReactiveFormsModule,
+  MatDialogModule
 ];
 
 @NgModule({
   declarations: [HeaderComponent, FooterComponent, BaseLayoutComponent, LoaderComponent, SidenavComponent],
   imports: [CommonModule, RouterModule, ...commonModules],
-  exports: [HeaderComponent, FooterComponent, BaseLayoutComponent, LoaderComponent, SidenavComponent, ...commonModules, MatFormFieldModule]
+  exports: [HeaderComponent, FooterComponent, BaseLayoutComponent, LoaderComponent, SidenavComponent, ...commonModules]
 })
 export class SharedModule {}
