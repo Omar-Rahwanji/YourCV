@@ -26,6 +26,7 @@
     "@auth0/angular-jwt": "^5.0.2",
     "@ngneat/tailwind": "^7.0.3",
     "jwt-decode": "^3.1.2",
+    "jspdf": "^2.4.0",
     "ng-particles": "^2.7.3",
     "ngx-skeleton-loader": "^2.10.0",
     "ngx-spinner": "^12.0.0",

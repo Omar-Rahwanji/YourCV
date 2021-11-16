@@ -1,0 +1,129 @@
+<h2 mat-dialog-title>Filling Resume Data</h2>
+<mat-dialog-content class="mat-typography w-96">
+
+  <form [formGroup]="resumeForm" (submit)="fillResumeData()">
+    <h1 class="text-2xl font-bold">Sign up</h1>
+
+    <div class="mb-4 mt-6">
+      <label class="block text-gray-700 text-sm font-semibold mb-2" for="personName"> Your Name </label>
+      <input matInput formControlName="personName"
+        class="text-sm appearance-none rounded w-full py-2 px-3 text-gray-700 bg-gray-100 leading-tight focus:outline-none focus:shadow-outline h-10"
+        id="personName" type="text" placeholder="your name" />
+      <mat-error *ngIf="resumeForm.controls.personName.hasError('required')">
+        Your Name is <strong>required</strong>
+      </mat-error>
+    </div>
+
+    <div class="mb-4 mt-6">
+      <label class="block text-gray-700 text-sm font-semibold mb-2" for="personPosition"> Position </label>
+      <input matInput formControlName="personPosition"
+        class="text-sm appearance-none rounded w-full py-2 px-3 text-gray-700 bg-gray-100 leading-tight focus:outline-none focus:shadow-outline h-10"
+        id="personPosition" type="text" placeholder="your current position" />
+      <mat-error *ngIf="resumeForm.controls.personPosition.hasError('required')">
+        Your current position is <strong>required</strong>
+      </mat-error>
+    </div>
+
+    <div class="mb-4 mt-6">
+      <label class="block text-gray-700 text-sm font-semibold mb-2" for="personSummary"> Summary </label>
+      <input matInput formControlName="personSummary"
+        class="text-sm appearance-none rounded w-full py-2 px-3 text-gray-700 bg-gray-100 leading-tight focus:outline-none focus:shadow-outline h-10"
+        id="personSummary" type="text" placeholder="summary" />
+      <mat-error *ngIf="resumeForm.controls.personSummary.hasError('required')">
+        Summary is <strong>required</strong>
+      </mat-error>
+    </div>
+
+    <div class="mb-4 mt-6">
+      <label class="block text-gray-700 text-sm font-semibold mb-2" for="personEmail"> Your email address </label>
+      <input matInput formControlName="personEmail"
+        class="text-sm appearance-none rounded w-full py-2 px-3 text-gray-700 bg-gray-100 leading-tight focus:outline-none focus:shadow-outline h-10"
+        id="personEmail" type="text" placeholder="your email address" />
+      <mat-error *ngIf="resumeForm.controls.personEmail.hasError('required')">
+        Your email address is <strong>required</strong>
+      </mat-error>
+    </div>
+
+    <div class="mb-4 mt-6">
+      <label class="block text-gray-700 text-sm font-semibold mb-2" for="personPhone"> Your phone number </label>
+      <input matInput formControlName="personPhone"
+        class="text-sm appearance-none rounded w-full py-2 px-3 text-gray-700 bg-gray-100 leading-tight focus:outline-none focus:shadow-outline h-10"
+        id="personPhone" type="text" placeholder="your phone number" />
+      <mat-error *ngIf="resumeForm.controls.personSummary.hasError('required')">
+        Your phone number is <strong>required</strong>
+      </mat-error>
+    </div>
+
+    <h2>Experiences</h2>
+    <div class="mb-4 mt-6">
+      <label class="block text-gray-700 text-sm font-semibold mb-2" for="personExperiences"> One of your experiences
+      </label>
+      <input matInput #experience
+        class="text-sm appearance-none rounded w-full py-2 px-3 text-gray-700 bg-gray-100 leading-tight focus:outline-none focus:shadow-outline h-10"
+        id="personExperiences" type="text" placeholder="one of your experience" />
+      <mat-dialog-actions align="end">
+        <button mat-button [disabled]="experience.value==''"
+          (click)="addExperience(experience.value); experience.value=''">Add experience</button>
+      </mat-dialog-actions>
+    </div>
+
+    <h2>Educations</h2>
+    <div class="mb-4 mt-6">
+      <label class="block text-gray-700 text-sm font-semibold mb-2" for="personEducations"> One of your educations
+      </label>
+      <input matInput #education
+        class="text-sm appearance-none rounded w-full py-2 px-3 text-gray-700 bg-gray-100 leading-tight focus:outline-none focus:shadow-outline h-10"
+        id="personEducations" type="text" placeholder="one of your education" />
+      <mat-dialog-actions align="end">
+        <button mat-button [disabled]="education.value==''"
+          (click)="addEducation(education.value); education.value=''">Add education</button>
+      </mat-dialog-actions>
+    </div>
+
+    <h2>Skills</h2>
+    <div class="mb-4 mt-6">
+      <label class="block text-gray-700 text-sm font-semibold mb-2" for="personSkills"> One of your skills
+      </label>
+      <input matInput #skill
+        class="text-sm appearance-none rounded w-full py-2 px-3 text-gray-700 bg-gray-100 leading-tight focus:outline-none focus:shadow-outline h-10"
+        id="personSkills" type="text" placeholder="one of your skills" />
+      <mat-dialog-actions align="end">
+        <button mat-button [disabled]="skill.value==''"
+          (click)="addSkill(skill.value); skill.value=''">Add skill</button>
+      </mat-dialog-actions>
+    </div>
+
+
+    <h2>Projects</h2>
+    <div class="mb-4 mt-6">
+      <label class="block text-gray-700 text-sm font-semibold mb-2" for="personProjects"> One of your projects
+      </label>
+      <input matInput #project
+        class="text-sm appearance-none rounded w-full py-2 px-3 text-gray-700 bg-gray-100 leading-tight focus:outline-none focus:shadow-outline h-10"
+        id="personProjects" type="text" placeholder="one of your projects" />
+      <mat-dialog-actions align="end">
+        <button mat-button [disabled]="project.value==''"
+          (click)="addProject(project.value); project.value=''">Add project</button>
+      </mat-dialog-actions>
+    </div>
+
+
+    <h2>Interests</h2>
+    <div class="mb-4 mt-6">
+      <label class="block text-gray-700 text-sm font-semibold mb-2" for="personInterests"> One of your interests
+      </label>
+      <input matInput #interest
+        class="text-sm appearance-none rounded w-full py-2 px-3 text-gray-700 bg-gray-100 leading-tight focus:outline-none focus:shadow-outline h-10"
+        id="personInterests" type="text" placeholder="one of your interests" />
+      <mat-dialog-actions align="end">
+        <button mat-button [disabled]="interest.value==''"
+          (click)="addInterest(interest.value); interest.value=''">Add interest</button>
+      </mat-dialog-actions>
+    </div>
+
+    <mat-dialog-actions align="end">
+      <button mat-button mat-dialog-close>Cancel</button>
+      <button mat-button type="submit" [disabled]="!resumeForm.valid" mat-dialog-close="true">Submit</button>
+    </mat-dialog-actions>
+  </form>
+</mat-dialog-content>
