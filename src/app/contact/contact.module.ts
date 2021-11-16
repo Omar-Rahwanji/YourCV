@@ -7,10 +7,14 @@ import { SharedModule } from '../shared/shared.module';
 import { GoogleLocationMapComponent } from './google-location-map/google-location-map.component';
 import { GoogleMapsModule } from '@angular/google-maps';
 import { HttpClientJsonpModule } from '@angular/common/http';
+import {MatFormFieldModule} from '@angular/material/form-field';
+
+
+
 
 @NgModule({
   declarations: [ContactComponent, GoogleLocationMapComponent],
-  imports: [CommonModule, ContactRoutingModule, SharedModule, GoogleMapsModule, HttpClientJsonpModule],
+  imports: [CommonModule, ContactRoutingModule, SharedModule, GoogleMapsModule, HttpClientJsonpModule,MatFormFieldModule],
   exports: [GoogleLocationMapComponent]
 })
 export class ContactModule {}

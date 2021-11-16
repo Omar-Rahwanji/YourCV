@@ -1,5 +1,6 @@
 import { BreakpointObserver } from '@angular/cdk/layout';
 import { Component, EventEmitter, HostListener, Input, OnInit, Output } from '@angular/core';
+import { HomeService } from 'src/app/service/home.service';
 import { menuList as staticMenuList } from '../../data/menus';
 
 @Component({
@@ -13,7 +14,8 @@ export class HeaderComponent implements OnInit {
   isScrolled: boolean;
   menuList = [];
   isLessThenLargeDevice;
-  constructor(private breakpointObserver: BreakpointObserver) {}
+  logo=this.homeService.webPageData.logo;
+  constructor(private breakpointObserver: BreakpointObserver,public homeService:HomeService) {}
 
   ngOnInit(): void {
     this.menuList = staticMenuList;
