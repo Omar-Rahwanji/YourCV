@@ -14,8 +14,9 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatListModule } from '@angular/material/list';
 import { SidenavComponent } from './components/sidenav/sidenav.component';
 import { HttpClientModule } from '@angular/common/http';
+import {FormsModule,ReactiveFormsModule} from '@angular/forms';
+import { ToastrService } from 'ngx-toastr';
 import {MatFormFieldModule} from '@angular/material/form-field';
-import { ReactiveFormsModule } from '@angular/forms';
 import {MatDialogModule} from '@angular/material/dialog';
 
 const commonModules = [
@@ -27,8 +28,9 @@ const commonModules = [
   MatProgressSpinnerModule,
   MatSidenavModule,
   MatListModule,
-  MatFormFieldModule,
   ReactiveFormsModule,
+  FormsModule,
+  MatFormFieldModule,
   MatDialogModule
 ];
 

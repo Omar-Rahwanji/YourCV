@@ -1,8 +1,11 @@
 {
+  "styles": "node_modules/ngx-toastr/toastr.css",
+    
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
   "cli": {
     "analytics": false
   },
+  
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
@@ -29,10 +32,13 @@
             "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.app.json",
             "assets": ["src/favicon.ico", "src/assets"],
-            "styles": [
-              "src/styles.scss",
-              "node_modules/ngx-toastr/toastr.css"
-            ],
+            "styles":
+             [
+               "./node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css",
+                "src/styles.scss",
+                "node_modules/ngx-toastr/toastr.css"
+              ],
+
             "scripts": [],
             "allowedCommonJsDependencies": ["tsparticles"]
           },
@@ -92,7 +98,7 @@
             "tsConfig": "tsconfig.spec.json",
             "karmaConfig": "karma.conf.js",
             "assets": ["src/favicon.ico", "src/assets"],
-            "styles": ["src/styles.scss"],
+            "styles": ["./node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css", "src/styles.scss"],
             "scripts": []
           }
         }
@@ -100,4 +106,6 @@
     }
   },
   "defaultProject": "lieblings"
+
+  
 }

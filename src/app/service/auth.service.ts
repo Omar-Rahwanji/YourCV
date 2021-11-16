@@ -11,7 +11,6 @@ import { environment } from 'src/environments/environment';
 import {Auth} from '../models/auth/auth.module'
 import { HomeService } from './home.service';
 
-
 @Injectable({
   providedIn: 'root'
 })
