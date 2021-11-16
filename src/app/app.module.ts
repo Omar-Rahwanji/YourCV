@@ -7,6 +7,9 @@ import { SharedModule } from './shared/shared.module';
 import { NgxSkeletonLoaderModule } from 'ngx-skeleton-loader';
 import { NgxSpinnerModule } from "ngx-spinner";
 import { ToastrModule } from 'ngx-toastr';
+import {HTTP_INTERCEPTORS} from '@angular/common/http'
+import { TokenInterceptor } from './interceptors/token.interceptor';
+
 
 @NgModule({
   declarations: [AppComponent],
@@ -18,8 +21,15 @@ import { ToastrModule } from 'ngx-toastr';
     NgxSkeletonLoaderModule,
     NgxSpinnerModule,
     ToastrModule.forRoot()
+    
   ],
-  providers: [],
+  providers: [
+    {
+      provide:HTTP_INTERCEPTORS,
+      useClass:TokenInterceptor,
+      multi: true
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

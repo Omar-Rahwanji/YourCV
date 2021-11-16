@@ -16,6 +16,7 @@ export class AboutUsService {
   AboutUsData: any = [{}]
   // websiteInfoData : any =[{}]
 
+
   getAllAboutUs() {
     this.spinner.show();
     this.http.get('http://localhost:3456/api/AboutUs/GetAllAboutUs').subscribe((result: any) => {
