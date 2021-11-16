@@ -1,0 +1,17 @@
+<h2>Edit Role</h2>
+<form  [formGroup]="formGroup" *ngFor="let role of roleservice.data">
+  <div>
+    <mat-form-field >
+      <input formControlName="id" ngModel="{{role.id}}" value="role.name" hidden>
+      <mat-label>Role Name</mat-label>
+      <input matInput formControlName="Name" value="role.name" ngModel="{{role.name}}"  placeholder="Role Name ">
+      <!-- <mat-error *ngIf="registerForm.controls.fullName.hasError('required')">
+      fullName is <strong>required</strong>
+      </mat-error> -->
+      </mat-form-field>
+  </div>
+  <div >
+    <button mat-button [routerLink]="['/dashboard-admin/role']" class="cancle">Cancle</button>
+    <button mat-button class="save"  style="margin-left: 46px;" cdkFocusInitial (click)="UpdateRole()">Update</button>
+  </div>
+</form>

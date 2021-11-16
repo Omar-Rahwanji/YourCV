@@ -1,0 +1,17 @@
+<h2>Edit Permission</h2>
+<form  [formGroup]="formGroup" *ngFor="let permission of permissionservices.data">
+  <div>
+    <mat-form-field >
+      <input formControlName="id" ngModel="{{permission.id}}" value="permission.id" hidden>
+      <mat-label>Permission Name</mat-label>
+      <input matInput formControlName="Name" value="permission.name" ngModel="{{permission.name}}"  placeholder="Permission Name ">
+      <!-- <mat-error *ngIf="registerForm.controls.fullName.hasError('required')">
+      fullName is <strong>required</strong>
+      </mat-error> -->
+      </mat-form-field>
+  </div>
+  <div >
+    <button mat-button [routerLink]="['/dashboard-admin/permission']" class="cancle">Cancle</button>
+    <button mat-button class="save"  style="margin-left: 46px;" cdkFocusInitial (click)="UpdatePermission()">Update</button>
+  </div>
+</form>

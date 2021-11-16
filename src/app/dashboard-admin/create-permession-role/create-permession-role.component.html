@@ -1,0 +1,36 @@
+<h1 mat-dialog-title>Create Permission</h1>
+<form [formGroup]="formGroup" >
+  <mat-form-field appearance="fill" >
+    <mat-label>Permission Name</mat-label>
+    <mat-select  required formControlName="permissionId">
+      <mat-option>--</mat-option>
+      <mat-option   *ngFor="let permission of permissionservice.permission; let i = index " [value]="permission.id" >
+        {{permission.name}}
+      </mat-option>
+     
+    </mat-select>
+    
+    <mat-error *ngIf="formGroup.hasError('required')">Please choose Permission</mat-error>
+
+  </mat-form-field>
+
+  <mat-form-field appearance="fill" style="margin-left:55px;"   >
+    <mat-label>Role Name</mat-label>
+    <mat-select  required formControlName="RoleId">
+      <mat-option>--</mat-option>
+      <mat-option  *ngFor="let role of roleservice.data ; let i=index" [value]="role.id">
+        {{role.name}}
+      </mat-option>
+    </mat-select>
+    <mat-error *ngIf="formGroup.hasError('required')">Please choose Role</mat-error>
+
+  </mat-form-field>
+
+  <div mat-dialog-actions style="margin-left: 167 px ;">
+    <button mat-button mat-dialog-close class="cancle">Cancle</button>
+    <button type="submit"  mat-button [mat-dialog-close]="true" style="margin-left: 46px;" cdkFocusInitial (click)="saveItem()">Save</button>
+  </div>
+  
+
+</form>
+  

@@ -23,5 +23,9 @@ export const menuList: Menu[] = [
   {
     path: '/doc',
     name: 'Doc'
+  },
+  {
+    path:'/dashboard-admin',
+    name:'Dashboard-Admin'
   }
 ];

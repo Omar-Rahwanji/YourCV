@@ -38,7 +38,6 @@
                 "src/styles.scss",
                 "node_modules/ngx-toastr/toastr.css"
               ],
-
             "scripts": [],
             "allowedCommonJsDependencies": ["tsparticles"]
           },
