@@ -72,16 +72,7 @@ LoginForm(auth:Auth)
     }
     this.spinner.show();
     return this.http.post(`${environment.URL}`,auth,requestOptions)
-    
-    // .subscribe((res:any)=>{
-    //   this.spinner.hide
-    //   responce1=res;
-    //   const responce={
-    //       token:responce1.toString()};
-    //       localStorage.setItem('token',responce.token);
-    //       let Data:any=jwtDecode(responce.token);
-    //       localStorage.setItem('user',JSON.stringify({...Data}));
-    // })
+   
     
 }
 public getRole(){
