@@ -1,0 +1,68 @@
+<div>
+	<h5 class="mb-3 font-medium">Users</h5>
+	<div class="table-inside">
+		<table class="order-table table-auto ltMd:responsive">
+			<thead>
+				<tr class="border text-left">
+					<th>
+						<span class="text-gray-800">First Name</span>
+					</th>
+					<th>
+						<span class="text-gray-800">Last Name</span>
+					</th>
+					<th>
+						<span class="text-gray-800">Email</span>
+					</th>
+	
+					<th>
+						<span class="text-gray-800">Phone Number</span>
+					</th>
+
+          <th>
+						<span class="text-gray-800">City</span>
+					</th>
+	
+				
+					<th class="text-right">Action</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr *ngFor="let user of userService.data" class="border">
+					<td>
+					{{user.firstName}}
+					</td>
+					<td>
+						{{user?.lastName | titlecase }}
+					</td>
+					<td>
+						{{user.email}}
+					</td>
+					<td>
+						{{user.phoneNumber}}
+					</td>
+          <td>
+            {{user.city}}
+          </td>
+				
+					<td class="text-right">
+						<button class="action_icon__btn" mat-icon-button [matMenuTriggerFor]="menu">
+							<mat-icon>more_vert</mat-icon>
+						</button>
+						<mat-menu #menu="matMenu" xposition="before">
+							<button mat-menu-item>
+								<mat-icon>dialpad</mat-icon>
+                <button [routerLink]="['/dashboard-admin/userorder',user.id]" >Details</button>
+								
+							</button>
+							<button mat-menu-item>
+								<mat-icon>delete</mat-icon>
+                <button (click)="DeleteUser(user.id)">Delete</button>
+								
+							</button>
+						</mat-menu>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</div>

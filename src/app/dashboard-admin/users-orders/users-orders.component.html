@@ -1,0 +1,30 @@
+<div>
+	<h5 class="mb-3 font-medium">Orders</h5>
+	<div class="table-inside">
+		<table class="order-table table-auto ltMd:responsive">
+			<thead>
+				<tr class="border text-left">
+					<th>
+						<span class="text-gray-800">Person Name</span>
+					</th>
+					<th>
+						<span class="text-gray-800">Person Summary</span>
+					</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr *ngFor="let detalis of userservice.data"   class="border">
+					<td>
+					{{detalis.personName}}
+					</td>
+					<td>
+						{{detalis?.personSummary | titlecase }}
+					</td>
+				</tr>
+			</tbody>
+			
+		</table>
+	</div>
+</div>
+
+

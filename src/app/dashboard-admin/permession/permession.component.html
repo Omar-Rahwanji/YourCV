@@ -1,0 +1,82 @@
+<div>
+  <button mat-button class="newtPermission" (click)="createPermissionRole()">Add Permission</button>
+</div>
+<br/>
+<div *ngIf="view === 'list'" class="table-inside">
+  <div class="flex flex-col border ltLg:responsive">
+    
+    <div class="flex items-center p-4 border-b hover:bg-blue-100">
+      <div class="w-4/12 font-medium"><div class="pl-16 ml-3" style="font-size: large;">Permission Name</div></div>
+      <div class="w-4/12 font-medium"><div class="pl-16 ml-3" style="font-size: large;">Role Name</div></div>
+      <div class="w-1/12"></div>
+    </div>
+    <div class="flex items-center p-4 border-b hover:bg-blue-100" *ngFor="let permission of permissionservice.data | slice: 0:9">
+      <div class="w-6/12">
+          <h6 class="flex-auto" style="margin-left: 71px; color: #6b7280;">{{ permission?.permissionId }}</h6>
+      </div>
+      <div class="w-6/12">
+        <h6 class="flex-auto" style="margin-left: 71px; color: #6b7280;">{{ permission?.roleId }}</h6>
+    </div>
+      <button  style="margin-right: 45px;border-block: revert; width: 85 px ;">
+        <mat-icon>edit</mat-icon>
+        <button style="padding-bottom: 6 px; margin-left:5px;" [routerLink]="['/dashboard-admin/editpermission',permission.id]">Edit</button>
+      </button>
+      <button  style="border-block: revert; width: 85 px ;">
+        <mat-icon>delete</mat-icon>
+        <button style="padding-bottom: 6 px; margin-left:5px;" (click)="DeletePermissionRole(permission.id)">Delete</button>
+       </button>
+    <!--   <div class="w-1/12 text-right" style="margin-left: 167px;">
+        <button class="action_icon__btn" mat-icon-button [matMenuTriggerFor]="menu">
+          <mat-icon>more_vert</mat-icon>
+        </button>
+        <mat-menu #menu="matMenu" xposition="before">
+          <button mat-menu-item>
+            <mat-icon>dialpad</mat-icon>
+            <button (click)="EditTemplate()">Edit</button>
+          </button>
+          <button mat-menu-item>
+            <mat-icon>delete</mat-icon>
+            <button (click)="DeleteTemplate(template.id)">Delete</button>
+           </button>
+        </mat-menu>
+      </div> -->
+    </div>
+  </div>
+</div>
+
+
+
+<br/>
+<br/>
+<br/>
+
+
+<div>
+  <button mat-button class="newtPermission" (click)="createPermission()">Create Permission</button>
+</div>
+<br/>
+<div *ngIf="view === 'list'" class="table-inside">
+  <div class="flex flex-col border ltLg:responsive">
+    
+    <div class="flex items-center p-4 border-b hover:bg-blue-100">
+      <div class="w-4/12 font-medium"><div class="pl-16 ml-3" style="font-size: large;">Permission Name</div></div>
+      <div class="w-1/12"></div>
+    </div>
+    <div class="flex items-center p-4 border-b hover:bg-blue-100" *ngFor="let permission of permissionservice.permission | slice: 0:9">
+      <div class="w-6/12">
+          <h6 class="flex-auto" style="margin-left: 71px; color: #6b7280;">{{ permission?.name }}</h6>
+      </div>
+      <div class="w-6/12"></div>
+     
+      <button  style="margin-right: 45px;border-block: revert; width: 85 px ;margin-left: 247 px ;">
+        <mat-icon>edit</mat-icon>
+        <button style="padding-bottom: 6 px; margin-left:5px;" [routerLink]="['/dashboard-admin/editpermission',permission.id]">Edit</button>
+      </button>
+      <button  style="border-block: revert; width: 85 px ;">
+        <mat-icon>delete</mat-icon>
+        <button style="padding-bottom: 6 px; margin-left:5px;" (click)="DeletePermission(permission.id)">Delete</button>
+       </button>
+   
+    </div>
+  </div>
+</div>

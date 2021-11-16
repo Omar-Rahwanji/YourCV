@@ -1,0 +1,32 @@
+<h2 mat-dialog-title>Create Template</h2>
+  <form [formGroup]="formGroup">
+          <input style="padding-top: 13 px;" formControlName="Name" value="template.name"  placeholder="Template Name ">
+        <!-- <mat-error *ngIf="registerForm.controls.fullName.hasError('required')">
+        fullName is <strong>required</strong>
+        </mat-error> -->
+          <input style="padding-top: 13 px;" formControlName="Price" value="template.price"  placeholder="Template Price ">
+        <!-- <mat-error *ngIf="registerForm.controls.fullName.hasError('required')">
+        fullName is <strong>required</strong>
+        </mat-error> -->
+    <div>
+      <div >
+        <div class="row" style="margin-bottom:15px;margin-top: 26px;">
+ 
+          <div class="col-md-3">
+            <input type="file" #file placeholder="Choose Image" 
+               formControlName="coverImage" (change)="uploadFile(file.files)" 
+            style="display:none;">
+            <button type="button" class="btn btn-success" 
+            (click)="file.click()">Upload Image</button>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  
+    <div mat-dialog-actions>
+      <button mat-button mat-dialog-close class="cancle">Cancle</button>
+      <button mat-button [mat-dialog-close]="true" style="margin-left: 46px;" cdkFocusInitial (click)="saveItem()">Save</button>
+    </div>
+    </form>
+ 
