@@ -70,8 +70,8 @@ url:string;
 getImagePath(value:string ){
 
   this.url ="C:/Users/DELL/Desktop/YourCv/Tahaluf.YourCV.API/Properties/assets/images/templates/";
-  let basePath=this.sanitizer.sanitize(SecurityContext.URL,this.sanitizer.bypassSecurityTrustUrl(this.url));
-  return basePath+value;
+  let basePath=(this.url);
+  return  (basePath+value).split('unsafe:')[0];
   
   }
 }
