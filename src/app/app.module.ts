@@ -31,7 +31,6 @@ import { TokenInterceptor } from './interceptors/token.interceptor';
     FormsModule,
     NgxSpinnerModule,
   ],
-  providers: [],
   bootstrap: [AppComponent],  
  
   providers: [

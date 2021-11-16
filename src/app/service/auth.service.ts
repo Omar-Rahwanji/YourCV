@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 // import { JwtHelperService } from '@auth0/angular-jwt';
-import jwtDecode from 'jwt-decode';
+import jwt_decode from 'jwt-decode';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { ToastrService } from 'ngx-toastr';
 // import { BehaviorSubject } from 'rxjs';
@@ -74,13 +74,12 @@ LoginForm(auth:Auth)
       headers:new HttpHeaders(headerDict)
     }
     this.spinner.show();
-    return this.http.post(`${environment.URL}`,auth,requestOptions)
-   
-    
+    return this.http.post('http://localhost:3456/api/Jwt/',auth,requestOptions)
 }
+
 public getRole(){
   const tokenString = localStorage.getItem('token') || 'invalid token';
-  let token:any = jwtDecode(tokenString);
+  let token:any = jwt_decode(tokenString);
   if(token.role)
   { 
     return token.role;}

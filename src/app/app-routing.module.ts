@@ -46,8 +46,9 @@ const routes: Routes = [
   {
     path:'dashboard-admin',
     loadChildren:()=>import('./dashboard-admin/dashboard-admin.module').then(m=>m.DashboardAdminModule)
-  }
+  },
   {
+    path: '',
     loadChildren: () => DashboardModule,
     canActivate:[AutthorizationGuard],
     data:

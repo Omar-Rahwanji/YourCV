@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ProductService } from 'src/app/service/product.service';
 import { productsDB } from '../../shared/data/products'; 
 @Component({
   selector: 'll-home-products',
@@ -7,10 +8,11 @@ import { productsDB } from '../../shared/data/products';
 })
 export class HomeProductsComponent implements OnInit {
   products = [];
-  constructor() { 
-    this.products = productsDB.Product
+  constructor(public productService:ProductService) { 
   }
 
-  ngOnInit(): void { }
+  ngOnInit(): void { 
+    this.productService.getProducts();
+  }
 
 }
