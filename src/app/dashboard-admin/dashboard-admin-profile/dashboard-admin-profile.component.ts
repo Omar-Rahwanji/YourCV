@@ -13,6 +13,7 @@ export class DashboardAdminProfileComponent implements OnInit {
 
   ngOnInit(): void {
     debugger
+    
     this.adminservice.getAdminProfile(1);
 
   }
