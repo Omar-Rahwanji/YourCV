@@ -27,24 +27,21 @@ export class LoginComponent implements OnInit {
   }
   SubmitLogin()
   {
-    var responce1:any;
     this.auth.UserName=this.LoginForm.controls.userName.value
     this.auth.Password=this.LoginForm.controls.password.value
+    debugger
     this.authService.LoginForm(this.auth).subscribe((result:any)=>{
-    if(result !=""){
-      responce1=result;
-        const responce={
-            token:responce1.toString()};
-            localStorage.setItem('token',responce.token);
-            let Data:any=jwtDecode(responce.token);
-            localStorage.setItem('user',JSON.stringify({...Data}));
-        if(Data.role="Admin")
-         { this.spinner.hide();
-            this.router.navigate(['dashboard'])
+    debugger
+      if(result){
+            localStorage.setItem('token',result);
             this.toastr.success('You are loged in successfully');
-        
+            let Data:any=jwtDecode(result);
+            debugger
+        if(Data.role=="Admin")
+         { this.spinner.hide();
+            this.router.navigate(['dashboard-admin'])
           }
-         else if(Data.role="Customer")
+         else if(Data.role=="Customer")
          {
           this.spinner.hide();
           this.router.navigate(['dashboard'])

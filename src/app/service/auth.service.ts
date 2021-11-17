@@ -2,6 +2,7 @@ import { HttpClient, HttpHeaders} from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+// import { debug } from 'console';
 // import { JwtHelperService } from '@auth0/angular-jwt';
 import jwt_decode from 'jwt-decode';
 import { NgxSpinnerService } from 'ngx-spinner';
@@ -61,6 +62,7 @@ export class AuthService {
 LoginForm(auth:Auth)
 {
  var responce1:any;
+ debugger
   var body=
     {
   email:this.email.value.toString(),
@@ -75,6 +77,7 @@ LoginForm(auth:Auth)
     }
     this.spinner.show();
     return this.http.post('http://localhost:3456/api/Jwt/',auth,requestOptions)
+
 }
 
 public getRole(){
@@ -86,11 +89,6 @@ public getRole(){
   else return null;
 
 }
-// public isAuthenticated(): boolean {
-//   // Check whether the token is expired and return
-//   // true or false
-//   const token = localStorage.getItem('token') || undefined;
-//   return !this.jwtHelper.isTokenExpired(token);
-// }
+
 
 }

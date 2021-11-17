@@ -19,6 +19,7 @@ export class DashboardLayoutComponent implements OnInit {
     });
   }
   onLogout(): void {
+    localStorage.clear();
     this.router.navigate(['auth/login']);
   }
 }
