@@ -57,6 +57,21 @@
         class="font-semibold text-gray-500 hover:text-primary"
         ><mat-icon class="mr-2">supervised_user_circle</mat-icon> Permission</a
       >
+      <a
+                  mat-list-item
+                  routerLink="/dashboard-admin/monthlyreport"
+                  routerLinkActive="bg-gray-200"
+                  class="font-semibold text-gray-500 hover:text-primary"
+                  ><mat-icon class="mr-2">receipt</mat-icon> Monthly Report</a
+                >
+
+                <a
+                  mat-list-item
+                  routerLink="/dashboard-admin/financialyReport"
+                  routerLinkActive="bg-gray-200"
+                  class="font-semibold text-gray-500 hover:text-primary"
+                  ><mat-icon class="mr-2">receipt</mat-icon> Financial Report</a
+                >
           <a (click)="onLogout()" mat-list-item class="font-semibold text-gray-500 hover:text-primary"><mat-icon class="mr-2">logout</mat-icon> Logout</a>
         </mat-nav-list>
       </div>
@@ -149,6 +164,20 @@
                     class="font-semibold text-gray-500 hover:text-primary"
                     ><mat-icon class="mr-2">lock_open</mat-icon> Permission</a
                   >
+                  <a
+                  mat-list-item
+                  routerLink="/dashboard-admin/monthlyreport"
+                  routerLinkActive="bg-gray-200"
+                  class="font-semibold text-gray-500 hover:text-primary"
+                  ><mat-icon class="mr-2">receipt</mat-icon> Monthly Report</a
+                >
+                <a
+                  mat-list-item
+                  routerLink="/dashboard-admin/financialyReport"
+                  routerLinkActive="bg-gray-200"
+                  class="font-semibold text-gray-500 hover:text-primary"
+                  ><mat-icon class="mr-2">receipt</mat-icon> Financial Report</a
+                >
                     <a (click)="onLogout()" mat-list-item class="font-semibold text-gray-500 hover:text-primary"><mat-icon class="mr-2">logout</mat-icon> Logout</a>
                   </mat-nav-list>
                 </div>

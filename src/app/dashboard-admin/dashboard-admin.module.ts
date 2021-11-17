@@ -30,6 +30,8 @@ import { EditPermissionComponent } from './edit-permission/edit-permission.compo
 import { EditPermissionRoleComponent } from './edit-permission-role/edit-permission-role.component';
 import { WebsiteInfoComponent } from './website-info/website-info.component';
 import { EditWebsiteComponent } from './edit-website/edit-website.component';
+import { ReportMonthlyComponent } from './report-monthly/report-monthly.component';
+import { ReportFinancialComponent } from './report-financial/report-financial.component';
 
 
 @NgModule({
@@ -52,7 +54,9 @@ import { EditWebsiteComponent } from './edit-website/edit-website.component';
     EditPermissionComponent,
     EditPermissionRoleComponent,
     WebsiteInfoComponent,
-    EditWebsiteComponent
+    EditWebsiteComponent,
+    ReportMonthlyComponent,
+    ReportFinancialComponent
     
   ],
   imports: [

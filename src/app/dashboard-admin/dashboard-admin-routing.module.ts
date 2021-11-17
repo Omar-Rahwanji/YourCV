@@ -11,6 +11,8 @@ import { EditRoleComponent } from './edit-role/edit-role.component';
 import { EditTemplateComponent } from './edit-template/edit-template.component';
 import { EditWebsiteComponent } from './edit-website/edit-website.component';
 import { PermessionComponent } from './permession/permession.component';
+import { ReportFinancialComponent } from './report-financial/report-financial.component';
+import { ReportMonthlyComponent } from './report-monthly/report-monthly.component';
 import { RoleComponent } from './role/role.component';
 import { TemplateComponent } from './template/template.component';
 import { UsersOrdersComponent } from './users-orders/users-orders.component';
@@ -70,6 +72,14 @@ const DashboardAdminChildrenRoute: Routes = [
   {
     path:'editwebsite',
     component:EditWebsiteComponent
+  },
+  {
+    path:'monthlyreport',
+    component:ReportMonthlyComponent
+  },
+  {
+    path:'financialyReport',
+    component:ReportFinancialComponent
   }
 ];
 
