@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import jwtDecode from 'jwt-decode';
 import { ProfileUserService } from 'src/app/Service/profile-user.service';
 
 @Component({
@@ -21,9 +22,11 @@ export class DashboardProfileComponent implements OnInit {
 @Input () roleId:number|undefined;
 @Input () role:string='N/A';
   constructor(private router:Router,public UserProfile:ProfileUserService) { }
-
   ngOnInit(): void {
-    this.UserInfo(1);
+    debugger
+    let StringToken= localStorage.getItem('token');
+    let Token:any=jwtDecode(StringToken);
+    this.UserInfo(Token.nameid);
   }
   UserInfo(id:number){
     debugger
