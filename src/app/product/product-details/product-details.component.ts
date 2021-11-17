@@ -12,10 +12,11 @@ import { CreateResumeComponent } from './create-resume/create-resume.component';
   templateUrl: './product-details.component.html',
   styleUrls: ['./product-details.component.scss']
 })
+
 export class ProductDetailsComponent implements OnInit {
   @ViewChild('resumeBody',{static: false}) element!: ElementRef;
   constructor(public productService:ProductService, private dialog: MatDialog, private router:Router) { }
-
+  selectedTemplateDocument:any = {};
   ngOnInit(): void {
     this.productService.getProductById(parseInt(this.router.url.split('/')[2]));
   }

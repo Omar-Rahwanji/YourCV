@@ -1,41 +1,14 @@
-<div class="pt-52 pb-32 bg-gray-100 text-center"  style="background-size: cover; background-repeat: no-repeat; background-image:url('{{AboutUsService.AboutUsData[7].centerImage}}')" >
-  <div class="container">
-    <a style="background-color: rgb(255, 255, 255); border-radius: 5px;">&nbsp;&nbsp;About Us&nbsp;&nbsp;</a>
-    <nav class="breadcrumb flex justify-center items-center" >
-
-    <div style="background-color: rgb(255, 255, 255); border-radius: 5px;">
-      <a class="px-1 mr-3 text-gray-500 hover:text-black" [routerLink]="'/'">&nbsp;Home&nbsp;</a>
-      <a class="px-1" href="javascript:void(0)" class="text-accent">About&nbsp;</a>
-    </div>
-    </nav>
-  </div>
-  <!-- <img src="../../assets/images/aboutus.jpg" alt=""> -->
-</div>
-
 <!-- About  -->
+<img src="{{AboutUsService.AboutUsData[0].centerImage}}" alt="about us bg" height="60">
 <div class="pt-20 pb-24">
   <div class="container">
-    <h1 class="about__title"> {{AboutUsService.AboutUsData[0].information}} </h1>
-    <h3 class="about__title"> {{AboutUsService.AboutUsData[1].information}} </h3>
     <div class="flex flex-wrap mt-5 xl:mt-8">
       <div class="lg:w-1/2 lg:order-last">
-          <img src="{{AboutUsService.AboutUsData[7].sideImage}}" alt="About" />
+          <img src="{{AboutUsService.AboutUsData[0].sideImage}}" alt="About" />
         <!-- </a> -->
       </div>
       <div class="lg:w-1/2 lg:pr-10 mt-8 lg:mt-0 about__text">
-        <p class="mb-3">
-          {{AboutUsService.AboutUsData[2].information}} 
-        </p>
-        <p class="mb-3">
-          {{AboutUsService.AboutUsData[3].information}}  
-        </p>
-        <p class="mb-3">
-          {{AboutUsService.AboutUsData[4].information}}  
-        </p>
-        <h3 class="about__title"> {{AboutUsService.AboutUsData[5].information}} </h3>
-        <p class="mb-3">
-          {{AboutUsService.AboutUsData[6].information}}  
-        </p>
+        <h3 class="about__title"> {{AboutUsService.AboutUsData[0].information}} </h3>
       </div>
     </div>
   </div>

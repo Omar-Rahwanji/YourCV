@@ -14,8 +14,6 @@ export class AboutUsService {
   }
 
   AboutUsData: any = [{}]
-  // websiteInfoData : any =[{}]
-
 
   getAllAboutUs() {
     this.spinner.show();
@@ -29,8 +27,5 @@ export class AboutUsService {
         this.toastr.error('Failed Retrieving Data 😐');
       }
     );
-    // getAllWebsiteInfo(){
-    //   return this.http.get("http://localhost:3456/api/WebsiteInfo/GetAllWebsiteInfo")
-    // }
   }
 }

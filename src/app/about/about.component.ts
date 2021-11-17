@@ -13,5 +13,6 @@ export class AboutComponent implements OnInit {
 
   ngOnInit(): void {
     this.AboutUsService.getAllAboutUs()
+    console.log(this.AboutUsService.AboutUsData[0].information)
   }
 }

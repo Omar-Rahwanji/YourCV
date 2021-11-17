@@ -66,10 +66,10 @@ export class ProductService {
 
   getProductById(productId: number) {
     this.spinner.show();
-    this.http.get('http://localhost:3456/api/TemplateDocument/GetTemplateDocumentById/' + productId).subscribe((result: any) => {
-      this.selectedTemplateDocument = result;
+    this.http.get('http://localhost:3456/api/TemplateDocument/GetTemplateDocumentById/' + productId).subscribe((result) => {
       this.toastr.success('Data Retrieved Successfuly 😁');
       this.spinner.hide();
+      this.selectedTemplateDocument = result;
     },
       error => {
         this.spinner.hide();
