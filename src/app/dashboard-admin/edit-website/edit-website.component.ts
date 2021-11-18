@@ -18,7 +18,6 @@ export class EditWebsiteComponent implements OnInit {
     headLine:new FormControl('',Validators.required),
     logo:new FormControl(''),
     background:new FormControl(''),
-
   })
 
   constructor(public websiteservice:WebsiteserviceService) { }
