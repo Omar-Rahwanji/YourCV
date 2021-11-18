@@ -31,7 +31,7 @@ export class WebsiteserviceService {
 
   UpdateWebsite(data: any) {
     debugger
-    data = { ...data, Id: 3, RoleId: 1 }
+    data = { ...data, Id: 1, RoleId: 2 }
     this.spiner.show();
     debugger
     this.http.put('http://localhost:3456/api/WebsiteInfo/UpdateWebsiteInfo', data).subscribe((res: any) => {

@@ -18,14 +18,12 @@ export class EditWebsiteComponent implements OnInit {
     headLine:new FormControl('',Validators.required),
     logo:new FormControl(''),
     background:new FormControl(''),
-
   })
 
   constructor(public websiteservice:WebsiteserviceService) { }
 
   ngOnInit(): void {
-    debugger
-    this.websiteservice.getWebsiteById(3)
+    this.websiteservice.getWebsiteById(1)
   }
 
 
