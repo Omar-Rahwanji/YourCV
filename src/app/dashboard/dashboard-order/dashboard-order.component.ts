@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import jwtDecode from 'jwt-decode';
 import { DashboardCustomerService } from 'src/app/Service/dashboard-customer.service';
+import { ProductService } from 'src/app/service/product.service';
 
 @Component({
   selector: 'app-dashboard-order',
@@ -10,29 +12,18 @@ import { DashboardCustomerService } from 'src/app/Service/dashboard-customer.ser
 export class DashboardOrderComponent implements OnInit {
   orders = [];
 
-  constructor(private router:Router, public orderservice:DashboardCustomerService) {}
+  constructor(private router: Router, public orderservice: DashboardCustomerService) { }
 
   ngOnInit(): void {
-    
-    
-    debugger
-    this.orderservice.GetAllResumeById(1);
+    let StringToken = localStorage.getItem('token');
+    let Token: any = jwtDecode(StringToken);
+    this.orderservice.GetAllResumeById(Number(Token.nameid));
   }
 
-  
-
-Delete(id:number){
-  debugger
-
-  debugger
-    this.orderservice.DeleteResumebyID(id);
+  Delete(resumeId: number) {
+    this.orderservice.DeleteResumebyID(resumeId);
     //this.toastr.success('Deleted Item');
-  
-    window.location.reload();
-
-
- 
-   // this.toastr.warning('This item cannot be deleted')
+    // this.toastr.warning('This item cannot be deleted')
   }
 
 }

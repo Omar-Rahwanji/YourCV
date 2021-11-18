@@ -19,7 +19,7 @@ export class AboutUsService {
     this.spinner.show();
     this.http.get('http://localhost:3456/api/AboutUs/GetAllAboutUs').subscribe((result: any) => {
       this.AboutUsData = result;
-      this.toastr.success('Data Retrieved Successfuly 😁');
+      // this.toastr.success('Data Retrieved Successfuly 😁');
       this.spinner.hide();
     },
       error => {

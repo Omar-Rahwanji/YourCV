@@ -29,27 +29,28 @@ export class CreateResumeComponent implements OnInit {
   });
 
   addEducation(education: any) {
-      this.resumeForm.controls.personEducations.setValue([this.resumeForm.controls.personEducations.value, education])
-      this.toastr.success('Education added successfuly 😁');
+    this.resumeForm.controls.personEducations.setValue([this.resumeForm.controls.personEducations.value, education])
+    this.toastr.success('Education added successfuly 😁');
   }
 
-  addExperience(experience: any){
-    this.resumeForm.controls.personExperiences.setValue([this.resumeForm.controls.personExperiences.value, experience])
+  addExperience(experience: any) {
+    console.log(experience)
+    this.resumeForm.controls.personExperiences.setValue([...this.resumeForm.controls.personExperiences.value, experience])
     this.toastr.success('Experience added successfuly 😁');
   }
 
-  addProject(project: any){
-    this.resumeForm.controls.personProjects.setValue([this.resumeForm.controls.personProjects.value, project])
+  addProject(project: any) {
+    this.resumeForm.controls.personProjects.setValue([...this.resumeForm.controls.personProjects.value, project])
     this.toastr.success('Project added successfuly 😁');
   }
 
-  addSkill(skill: any){
-    this.resumeForm.controls.personSkills.setValue([this.resumeForm.controls.personSkills.value, skill])
+  addSkill(skill: any) {
+    this.resumeForm.controls.personSkills.setValue([...this.resumeForm.controls.personSkills.value, skill])
     this.toastr.success('Skill added successfuly 😁');
   }
 
-  addInterest(interest: any){
-    this.resumeForm.controls.personInterests.setValue([this.resumeForm.controls.personInterests.value, interest])
+  addInterest(interest: any) {
+    this.resumeForm.controls.personInterests.setValue([...this.resumeForm.controls.personInterests.value, interest])
     this.toastr.success('Interest added successfuly 😁');
   }
 

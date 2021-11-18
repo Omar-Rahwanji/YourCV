@@ -1,52 +1,52 @@
 <div>
-	<h5 class="mb-3 font-medium">Template Order</h5>
-	<div class="table-inside">
-		<table class="order-table table-auto ltMd:responsive">
-			<thead>
-				<tr class="border text-left">
-					<th>
-						<span class="text-gray-800">Person Name</span>
-					</th>
-					<th>
-						<span class="text-gray-800">Person Summary</span>
-					</th>
-			
-	
-				
-					<th class="text-right">Action</th>
-				</tr>
-			</thead>
-			<tbody>
-				<tr *ngFor="let order of orderservice.data" class="border">
-					<td>
-					{{order.personName}}
-					</td>
-					<td>
-						{{order.personSummary  }}
-					</td>
-				
-				
-         
-				
-					 <td class="text-right">
-				
-				
-							<!-- <button mat-menu-item>
+  <h5 class="mb-3 font-medium">Template Order</h5>
+  <div class="table-inside">
+    <table class="order-table table-auto ltMd:responsive">
+      <thead>
+        <tr class="border text-left">
+          <th>
+            <span class="text-gray-800">Person Name</span>
+          </th>
+          <th>
+            <span class="text-gray-800">Person Summary</span>
+          </th>
+
+
+
+          <th class="text-right">Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let order of orderservice.data" class="border">
+          <td>
+            {{order.personName}}
+          </td>
+          <td>
+            {{order.personSummary  }}
+          </td>
+
+
+
+
+          <td class="text-right">
+
+
+            <!-- <button mat-menu-item>
 								<mat-icon>dialpad</mat-icon>
                 <button  >Details</button> 
 							</button> -->
-							<!-- <button mat-menu-item>
+            <!-- <button mat-menu-item>
 								<mat-icon>delete</mat-icon>
                 <button (click)="Delete(order.id)">Delete</button> -->
-								<button  style="border-block: revert; width: 85 px ;">
-									<mat-icon>delete</mat-icon>
-									<button style="padding-bottom: 6 px; margin-left:5px;" (click)="Delete(order.id)">Delete</button>
+            <button style="border-block: revert; width: 85 px ;">
+              <mat-icon>delete</mat-icon>
+              <button style="padding-bottom: 6 px; margin-left:5px;" (click)="Delete(order.id)">Delete</button>
 
-							</button>
-						
-					</td>
-				</tr>
-			</tbody>
-		</table>
-	</div>
+            </button>
+
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
 </div>

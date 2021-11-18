@@ -32,14 +32,16 @@ export class AuthService {
     };
     this.http.post('http://localhost:3456/api/User/upload', file).subscribe((data: any) => {
       this.customerImage = data.personalPhoto;
+      this.toastr.success('Uploaded');
       // localStorage.setItem('image',this.display_image)
     }, err => {
+      this.toastr.error(' Not Uploaded');
     })
   }
 
 
   registerCustomer(customerData: any) {
-    customerData = { ...customerData, Country: 'Jordan', City: 'Amman', RoleId: 2, PersonalPhoto: this.customerImage };
+    customerData = { ...customerData, Country: 'Jordan', City: 'Amman', RoleId: 2, PersonalPhoto: 'logo.png' };
     this.spinner.show();
     this.http.post('http://localhost:3456/api/User/CreateUser', customerData).subscribe((result: any) => {
       this.toastr.success('Successfuly Registered 😁');
@@ -85,7 +87,9 @@ public getRole(){
   let token:any = jwt_decode(tokenString);
   if(token.role)
   { 
-    return token.role;}
+    
+    return token.role;
+  }
   else return null;
 
 }

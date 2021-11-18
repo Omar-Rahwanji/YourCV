@@ -17,7 +17,7 @@ export class HomeService {
     this.spinner.show();
     this.http.get('http://localhost:3456/api/WebsiteInfo/GetWebsiteInfoByRoleId/2').subscribe((result: any) => {
       this.webPageData = result;
-      this.toastr.success('Data Retrieved Successfuly 😁');
+      // this.toastr.success('Data Retrieved Successfuly 😁');
       this.spinner.hide();
     },
       error => {
@@ -36,7 +36,7 @@ export class HomeService {
     },
       error => {
         this.spinner.hide();
-        // this.toastr.error('Failed Retrieving Data 😐');
+        this.toastr.error('Failed Retrieving Data 😐');
       }
     );
   }

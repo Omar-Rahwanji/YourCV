@@ -32,7 +32,7 @@ export class TemplateService {
  
     },err=>{
      this.spiner.hide();
-     ///this.toastr.error(' Not Created');
+     this.tostr.error(' Not Created');
   
     })
  

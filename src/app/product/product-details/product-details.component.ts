@@ -14,9 +14,9 @@ import { CreateResumeComponent } from './create-resume/create-resume.component';
 })
 
 export class ProductDetailsComponent implements OnInit {
-  @ViewChild('resumeBody',{static: false}) element!: ElementRef;
-  constructor(public productService:ProductService, private dialog: MatDialog, private router:Router) { }
-  selectedTemplateDocument:any = {};
+  @ViewChild('resumeBody', { static: false }) element!: ElementRef;
+  constructor(public productService: ProductService, private dialog: MatDialog, private router: Router) { }
+  selectedTemplateDocument: any = {};
   ngOnInit(): void {
     this.productService.getProductById(parseInt(this.router.url.split('/')[2]));
   }
@@ -29,18 +29,27 @@ export class ProductDetailsComponent implements OnInit {
     });
   }
 
-  openPayDialog(){
-    const dialogRef = this.dialog.open(BuyResumeComponent);
+  openPayDialog() {
+    if (localStorage.getItem('token') != null) {
+      const dialogRef = this.dialog.open(BuyResumeComponent);
 
-    dialogRef.afterClosed().subscribe(result => {
-      console.log(`Dialog result: ${result}`);
-    });
+      dialogRef.afterClosed().subscribe(result => {
+        console.log(`Dialog result: ${result}`);
+        this.productService.buyResume(this.productService.selectedTemplateDocument.id);
+      });
+    }
+    else
+      this.router.navigate(['auth/login']);
+
   }
 
-  generateResume(){
-    let generatedResumePDF = new jsPDF('p','pt','a3');
+  generateResume() {
+    let generatedResumePDF = new jsPDF('p', 'pt', 'a3');
     generatedResumePDF.html(this.element.nativeElement, {
-      callback: (pdfFile)=> pdfFile.save('test.pdf')
+      callback: (pdfFile) => {
+        pdfFile.save('test.pdf')
+        window.location.reload()
+      }
     });
   }
 

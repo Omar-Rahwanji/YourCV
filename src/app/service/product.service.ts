@@ -1,22 +1,30 @@
 import { HttpClient } from '@angular/common/http';
 import { ElementRef, Injectable } from '@angular/core';
+import jwtDecode from 'jwt-decode';
 import { NgxSpinnerService, Spinner } from 'ngx-spinner';
 import { ToastrService } from 'ngx-toastr';
 import { HomeService } from './home.service';
+import { ProfileUserService } from './profile-user.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ProductService {
 
-  constructor(private spinner: NgxSpinnerService, private toastr: ToastrService, private http: HttpClient, private homeService: HomeService) {
+  constructor(private spinner: NgxSpinnerService, private toastr: ToastrService, private http: HttpClient, private homeService: HomeService, private userProfileService: ProfileUserService) {
     this.homeService.getWebPageData();
+    let StringToken = localStorage.getItem('token');
+    if (StringToken != null) {
+      let Token: any = jwtDecode(StringToken);
+      this.userId = Token.nameid;
+      this.userProfileService.getUserById(this.userId);
+    }
   }
 
   templateDocuments: any = [];
   selectedTemplateDocument: any = {};
   resumeBody: ElementRef;
-  payed:boolean = false;
+  payed: boolean = false;
 
   resumeData: any = {
     personName: 'JOHN DOE',
@@ -54,7 +62,7 @@ export class ProductService {
     this.spinner.show();
     this.http.get('http://localhost:3456/api/TemplateDocument/GetAllTemplateDocument').subscribe((result: any) => {
       this.templateDocuments = result;
-      this.toastr.success('Data Retrieved Successfuly 😁');
+      // this.toastr.success('Data Retrieved Successfuly 😁');
       this.spinner.hide();
     },
       error => {
@@ -67,13 +75,33 @@ export class ProductService {
   getProductById(productId: number) {
     this.spinner.show();
     this.http.get('http://localhost:3456/api/TemplateDocument/GetTemplateDocumentById/' + productId).subscribe((result) => {
-      this.toastr.success('Data Retrieved Successfuly 😁');
+      // this.toastr.success('Data Retrieved Successfuly 😁');
       this.spinner.hide();
       this.selectedTemplateDocument = result;
     },
       error => {
         this.spinner.hide();
         this.toastr.error('Failed Retrieving Data 😐');
+      }
+    );
+  }
+  userId: number = 0;
+  buyResume(templateDocumentId: number) {
+    const boughtResume =
+    {
+      PersonName: this.userProfileService.data[0].firstName + this.userProfileService.data[0].lastName,
+      PersonSummary: this.userProfileService.data[0].phoneNumber,
+      UserId: Number(this.userId),
+      TemplateDocumentId: Number(templateDocumentId)
+    }
+    this.spinner.show();
+    this.http.post('http://localhost:3456/api/Resume/CreateResume', boughtResume).subscribe((result) => {
+      this.toastr.success('Bought Successfuly 😁');
+      this.spinner.hide();
+    },
+      error => {
+        this.spinner.hide();
+        this.toastr.error('Failed 😐');
       }
     );
   }

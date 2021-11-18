@@ -8,41 +8,44 @@ import { ToastrService } from 'ngx-toastr';
   providedIn: 'root'
 })
 export class UsersServiceService {
-  data :any =[{}]
-  selectedResume:any=[{}]
+  data: any = [{}]
+  selectedResume: any = [{}]
 
-  constructor(private http:HttpClient,private spiner :NgxSpinnerService,private router:Router,public tostr:ToastrService) { }
+  constructor(private http: HttpClient, private spiner: NgxSpinnerService, private router: Router, public tostr: ToastrService) { }
 
-  getAllUser(){
+  getAllUser() {
     return this.http.get('http://localhost:3456/api/User/GetAllUser')
   }
 
-  DeletebyID(id:number){
+  DeletebyID(id: number) {
     debugger
     this.spiner.show();
     debugger
-    this.http.delete('http://localhost:3456/api/User/delete/'+id)
-    .subscribe((date:any)=>{
-      this.spiner.hide();
-    },err=>{
-      this.spiner.hide();
-    })
-    
-    
-      }
+    this.http.delete('http://localhost:3456/api/User/delete/' + id)
+      .subscribe((date: any) => {
+        this.spiner.hide();
+        this.tostr.success(' Deleted ');
+      }, err => {
+        this.spiner.hide();
+        this.tostr.error(err.status);
 
-      getAllResumeByUserId(userId:number){
-        debugger
-        return this.http.get('http://localhost:3456/api/Resume/GetResumeByUserId/'+userId).subscribe((data:any)=>{
-          debugger
-          this.selectedResume=data;
-          console.log(this.selectedResume);
-          this.data=this.selectedResume;
-          this.spiner.hide();
-    
-        },err=>{
-          this.spiner.hide();
-          this.tostr.error(err.status);
-        })
-      }
+      })
+
+
+  }
+
+  getAllResumeByUserId(userId: number) {
+    debugger
+    return this.http.get('http://localhost:3456/api/Resume/GetResumeByUserId/' + userId).subscribe((data: any) => {
+      debugger
+      this.selectedResume = data;
+      console.log(this.selectedResume);
+      this.data = this.selectedResume;
+      this.spiner.hide();
+
+    }, err => {
+      this.spiner.hide();
+      this.tostr.error(err.status);
+    })
+  }
 }

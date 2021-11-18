@@ -66,11 +66,11 @@ export class AdminService {
     };
     this.http.post('http://localhost:3456/api/User/upload',file).subscribe((data: any) => {
     this.display_image=data.personalPhoto;
-    debugger
+    this.tostr.success('Uploaded');
     if(data){
     console.log(data);}
     }, err => {
-    
+      this.tostr.error(' Not Uploaded');
     })
     }
 }

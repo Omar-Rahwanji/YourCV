@@ -61,11 +61,11 @@ export class PermissionServiceService {
     this.http.delete('http://localhost:3456/api/Permession/delete/'+id)
     .subscribe((date:any)=>{
       this.spiner.hide();
-     // this.toastr.success('Deleted ');
+     this.tostr.success(' Deleted ');
     
     },err=>{
       this.spiner.hide();
-      // this.toastr.error(err.status);
+      this.tostr.error(err.status);
     
     })
 }

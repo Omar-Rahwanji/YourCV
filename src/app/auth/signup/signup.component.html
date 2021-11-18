@@ -29,7 +29,7 @@
             </mat-error>
           </div>
 
-          <div class="mb-4 mt-6">
+          <!-- <div class="mb-4 mt-6">
             <label class="block text-gray-700 text-sm font-semibold mb-2" for="personalPhoto"> Personal Photo </label>
             <input matInput formControlName="personalPhoto" #file
               class="text-sm appearance-none rounded w-full py-2 px-3 text-gray-700 bg-gray-100 leading-tight focus:outline-none focus:shadow-outline h-10"
@@ -37,7 +37,7 @@
             <mat-error *ngIf="registerForm.controls.personalPhoto.hasError('required')">
               Personal Photo is <strong>required</strong>
             </mat-error>
-          </div>
+          </div> -->
 
           <div class="mb-4 mt-6">
             <label class="block text-gray-700 text-sm font-semibold mb-2" for="email"> Email </label>
@@ -49,6 +49,18 @@
               Email is <strong>required</strong>
             </mat-error>
           </div>
+
+          <div class="mb-4 mt-6">
+            <label class="block text-gray-700 text-sm font-semibold mb-2" for="phoneNumber"> Phone Number </label>
+            <input matInput formControlName="phoneNumber"
+              class="text-sm appearance-none rounded w-full py-2 px-3 text-gray-700 bg-gray-100 leading-tight focus:outline-none focus:shadow-outline h-10"
+              id="phoneNumber" type="phoneNumber" placeholder="your phone number" />
+            <mat-error
+              *ngIf="registerForm.controls.phoneNumber.hasError('required')">
+              Phone Number is <strong>required</strong>
+            </mat-error>
+          </div>
+
 
           <div class="mb-4 mt-6">
             <label class="block text-gray-700 text-sm font-semibold mb-2" for="username"> Username </label>

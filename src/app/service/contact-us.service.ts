@@ -1,5 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { NgxSpinnerService } from 'ngx-spinner';
+import { ToastrService } from 'ngx-toastr';
+import { HomeService } from './home.service';
 // import { ToastrService } from 'ngx-toastr';
 
 @Injectable({
@@ -7,23 +10,32 @@ import { Injectable } from '@angular/core';
 })
 export class ContactUsService {
 
-  constructor(private http:HttpClient) { }
+  constructor(private http: HttpClient, private toastr: ToastrService, private spinner: NgxSpinnerService, private homeService: HomeService) {
+    this.homeService.getWebPageData();
+  }
   // private http:HttpClient,private toaster:ToastrService
-  ContactInfoData :any=[{}]
-  ContactUsData : any=[{}]
+  ContactInfoData: any = [{}]
+  ContactUsData: any = [{}]
 
-  GetAllContactInfo()
-  {
-    return this.http.get("http://localhost:3456/api/ContactInfo/GetAllContactInfo");
+  getContactinfo() {
+    this.http.get("http://localhost:3456/api/ContactInfo/GetAllContactInfo").subscribe((result) => {
+      this.ContactInfoData = result;
+      // this.toastr.success('Data Retrieved Successfuly 😁');
+      this.spinner.hide();
+    },
+      error => {
+        this.spinner.hide();
+        this.toastr.error('Failed Retrieving Data 😐');
+      })
   }
 
-  CreateContactUs(ContactUsData:any)
-  {
-    this.http.post("http://localhost:3456/api/ContactUs/CreateContactUs",ContactUsData).subscribe();
-  
-    // this.http.post("http://localhost:3456/api/ContactUs/CreateContactUs",ContactUsData).subscribe((res)=> 
-    // {this.toaster.success('Message Sent Successfully'),err=>{this.toaster.error("Message Field Send")}});
-  
-  
+  CreateContactUs(ContactUsData: any) {
+    // this.http.post("http://localhost:3456/api/ContactUs/CreateContactUs", ContactUsData).subscribe();
+    this.http.post("http://localhost:3456/api/ContactUs/CreateContactUs", ContactUsData).subscribe((res) => {
+      this.toastr.success('Message Sent Successfully'),
+        err => {
+          this.toastr.error("Message Field Send")
+        }
+    });
   }
 }

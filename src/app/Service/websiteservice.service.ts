@@ -9,39 +9,39 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class WebsiteserviceService {
   selectedWebsite: [{}]
-  data: any=[{}];
+  data: any = [{}];
 
-  constructor(private http:HttpClient,private spiner :NgxSpinnerService,private router:Router,public tostr:ToastrService) { }
+  constructor(private http: HttpClient, private spiner: NgxSpinnerService, private router: Router, public tostr: ToastrService) { }
 
 
-  getWebsiteById(id:number){
+  getWebsiteById(id: number) {
     debugger
-    return this.http.get('http://localhost:3456/api/WebsiteInfo/GetWebsiteInfo/'+id).subscribe((data:any)=>{
+    return this.http.get('http://localhost:3456/api/WebsiteInfo/GetWebsiteInfo/' + id).subscribe((data: any) => {
       debugger
-      this.selectedWebsite=data;
+      this.selectedWebsite = data;
       console.log(this.selectedWebsite);
-      this.data=this.selectedWebsite;
+      this.data = this.selectedWebsite;
       this.spiner.hide();
 
-    },err=>{
+    }, err => {
       this.spiner.hide();
       this.tostr.error(err.status);
     })
   }
 
-  UpdateWebsite(data:any){
+  UpdateWebsite(data: any) {
     debugger
-    data={...data,Id:3,RoleId:1}
+    data = { ...data, Id: 3, RoleId: 1 }
     this.spiner.show();
     debugger
-    this.http.put('http://localhost:3456/api/WebsiteInfo/UpdateWebsiteInfo',data).subscribe((res:any)=>{
-      //this.toastr.success('Created');
+    this.http.put('http://localhost:3456/api/WebsiteInfo/UpdateWebsiteInfo', data).subscribe((res: any) => {
       this.spiner.hide();
+      this.tostr.success('Updated');
       this.router.navigate(['website']);
-    },err=>{
-     this.spiner.hide();
-     ///this.toastr.error(' Not Created');
+    }, err => {
+      this.spiner.hide();
+      this.tostr.error(' Not Updated');
     })
- 
+
   }
 }
