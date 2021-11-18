@@ -1,21 +1,21 @@
 <h2 >Update Template</h2>
-    <form [formGroup]="formGroup" *ngFor="let template of templateservice.data">
+    <form [formGroup]="formGroup" >
       <div > 
         <!-- <h6 hidden>{{template.id}}</h6>       -->  
         <div>
           <mat-form-field class="example-full-width">
 <!--             <mat-label>Template Name</mat-label>
- -->            <input matInput  style="font-size: large;" formControlName="Name" ngModel="{{template.name}}" placeholder="Template Name ">
+ -->            <input matInput  style="font-size: large;" formControlName="Name" ngModel="{{this.templateservice.selecttemplatedoc.name}}" placeholder="Template Name ">
             <!-- <mat-error *ngIf="registerForm.controls.fullName.hasError('required')">
             fullName is <strong>required</strong>
             </mat-error> -->
             </mat-form-field>
         </div>
-
+        {{this.productService.selectedTemplateDocument.name}}
         <div>
           <mat-form-field class="example-full-width">
 <!--             <mat-label>Template Price</mat-label>
- -->            <input matInput   style="font-size: large;" ngModel="{{template.price}}" formControlName="Price" placeholder="Template Price" >
+ -->            <input matInput   style="font-size: large;" ngModel="{{this.templateservice.selecttemplatedoc.price}}" formControlName="Price" placeholder="Template Price" >
           <!--   <mat-error *ngIf="formGroup.controls.Price.hasError('required')">
             Price is <strong>required</strong>
             </mat-error> -->
@@ -23,7 +23,7 @@
         </div>
 
         <div class="max-h-16 w-16 flex-none mr-3 border" >
-          <img  src="{{getImagePath(template.coverImage)}}" alt="">
+          <img  src="{{getImagePath(this.templateservice.selecttemplatedoc.coverImage)}}" alt="">
         </div>
         <div class="col-md-3">
           <input type="file" #file placeholder="Choose Image" 

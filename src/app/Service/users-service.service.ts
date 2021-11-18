@@ -14,6 +14,7 @@ export class UsersServiceService {
   constructor(private http: HttpClient, private spiner: NgxSpinnerService, private router: Router, public tostr: ToastrService) { }
 
   getAllUser() {
+    debugger
     return this.http.get('http://localhost:3456/api/User/GetAllUser')
   }
 

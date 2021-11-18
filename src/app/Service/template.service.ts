@@ -12,6 +12,8 @@ export class TemplateService {
   data :any=[{}] ;
   selectTemplate:any=[{}]
   display_image: any;
+
+  selecttemplatedoc:any={}
   constructor(private http:HttpClient,private spiner :NgxSpinnerService,private router:Router,public tostr:ToastrService) { }
   getAll(){
     return this.http.get('http://localhost:3456/api/TemplateDocument/GetAllTemplateDocument')
@@ -102,9 +104,9 @@ export class TemplateService {
           this.spiner.show();
           this.http.get('http://localhost:3456/api/TemplateDocument/GetTemplateDocumentById/'+id).subscribe((data:any)=>{
             debugger
-            this.selectTemplate=data;
-            console.log(this.selectTemplate);
-            this.data=this.selectTemplate;
+            this.selecttemplatedoc=data;
+            console.log(this.selecttemplatedoc);
+            //this.data=this.selecttemplatedoc;
             this.spiner.hide();
       
           },err=>{

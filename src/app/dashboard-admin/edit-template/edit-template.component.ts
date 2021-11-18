@@ -3,6 +3,7 @@ import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms'
 import { MatDialog } from '@angular/material/dialog';
 import { ActivatedRoute, Router } from '@angular/router';
 import { NgxSpinnerService } from 'ngx-spinner';
+import { ProductService } from 'src/app/service/product.service';
 import { TemplateService } from 'src/app/Service/template.service';
 
 @Component({
@@ -20,7 +21,7 @@ export class EditTemplateComponent implements OnInit {
   })
   id: any;
 
-  constructor(public templateservice:TemplateService,private activatedRoute: ActivatedRoute, private formBuilder: FormBuilder, private router: Router,private route: ActivatedRoute,) { }
+  constructor(public productService: ProductService,public templateservice:TemplateService,private activatedRoute: ActivatedRoute, private formBuilder: FormBuilder, private router: Router,private route: ActivatedRoute,) { }
 
   ngOnInit(): void {
     debugger
