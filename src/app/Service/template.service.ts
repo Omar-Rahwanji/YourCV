@@ -104,7 +104,7 @@ export class TemplateService {
             debugger
             this.selectTemplate=data;
             console.log(this.selectTemplate);
-            this.data=this.selectTemplate;
+            //this.data=this.selectTemplate;
             this.spiner.hide();
       
           },err=>{
