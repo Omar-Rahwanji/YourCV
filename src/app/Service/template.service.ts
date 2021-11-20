@@ -104,9 +104,10 @@ export class TemplateService {
           this.spiner.show();
           this.http.get('http://localhost:3456/api/TemplateDocument/GetTemplateDocumentById/'+id).subscribe((data:any)=>{
             debugger
-            this.selecttemplatedoc=data;
-            console.log(this.selecttemplatedoc);
-            //this.data=this.selecttemplatedoc;
+            this.selectTemplate=data;
+            console.log(this.selectTemplate);
+            //this.data=this.selectTemplate;
+
             this.spiner.hide();
       
           },err=>{
