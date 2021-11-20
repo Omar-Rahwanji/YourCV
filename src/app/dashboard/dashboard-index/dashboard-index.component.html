@@ -8,12 +8,13 @@
     </div>
   </div>
   <div>
+    
     <div *ngIf="view === 'list'" class="table-inside">
       <div class="flex flex-col border ltLg:responsive">
         <div class="flex items-center p-4 border-b hover:bg-blue-100">
           <div class="w-4/12 font-medium"><div class="pl-16 ml-3">Template Name</div></div>
-          <div class="w-2/12 font-medium text-center">Template Image</div>
-          <div class="w-2/12 font-medium text-center">Price</div>
+<!--           <div class="w-2/12 font-medium text-center">Template Image</div>
+ -->          <div class="w-2/12 font-medium text-center" style="margin-left: 133px;">Price</div>
          <!--  <div class="w-2/12 font-medium">Rating</div>
           <div class="w-1/12 font-medium">Feedback</div> -->
           <div class="w-1/12"></div>
@@ -21,9 +22,9 @@
         <div class="flex items-center p-4 border-b hover:bg-blue-100" *ngFor="let template of indexervice.data | slice: 0:9">
           <div class="w-6/12">
               <h6 class="flex-auto" style="margin-left: 71px;color: #6b7280;">{{ template?.name }}</h6>
-              <div class="max-h-16 w-16 flex-none mr-3 border" style="margin-left: 320px; margin-top: -19 px;" *ngIf="template?.coverImage">
+            <!--   <div class="max-h-16 w-16 flex-none mr-3 border" style="margin-left: 320px; margin-top: -19 px;" *ngIf="template?.coverImage">
                 <img src="{{getImagePath(template.coverImage)}}" alt="img">
-              </div>
+              </div> -->
             
           </div>
           <div class="w-2/12 text-center" style="color: #6b7280;"><h6>${{template?.price}} </h6></div>
@@ -35,9 +36,12 @@
     <div class="grid grid-cols-12 gap-4" *ngIf="view === 'grid'">
       <div class="col-span-4" *ngFor="let template of indexervice.data | slice: 0:9">
         <mat-card>
-          <img class="m-0 mb-4" mat-card-image src="{{getImagePath(template.coverImage)}}"  />
+         <!--  <img class="m-0 mb-4" mat-card-image src="{{getImagePath(template.coverImage)}}"  /> -->
           <mat-card-header class="mx-0">
             <h3 class="text-[15px] leading-[23px]">{{ template?.name }}</h3>
+          </mat-card-header>
+          <mat-card-header class="mx-0">
+            <h3 class="text-[15px] leading-[23px]">{{ template?.price }}</h3>
           </mat-card-header>
          
         </mat-card>
