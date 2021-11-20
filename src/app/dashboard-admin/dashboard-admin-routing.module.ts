@@ -10,6 +10,7 @@ import { EditPermissionComponent } from './edit-permission/edit-permission.compo
 import { EditRoleComponent } from './edit-role/edit-role.component';
 import { EditTemplateComponent } from './edit-template/edit-template.component';
 import { EditWebsiteComponent } from './edit-website/edit-website.component';
+import { InboxComponent } from './inbox/inbox.component';
 import { PermessionComponent } from './permession/permession.component';
 import { ReportFinancialComponent } from './report-financial/report-financial.component';
 import { ReportMonthlyComponent } from './report-monthly/report-monthly.component';
@@ -23,7 +24,7 @@ const DashboardAdminChildrenRoute: Routes = [
   {
     path: '',
     pathMatch: 'full',
-    component: TemplateComponent
+    component: InboxComponent
   },
   {
     path: 'profile',
@@ -80,6 +81,14 @@ const DashboardAdminChildrenRoute: Routes = [
   {
     path:'financialyReport',
     component:ReportFinancialComponent
+  },
+  {
+    path: 'inbox',
+    component: InboxComponent
+  },
+  {
+    path: 'template',
+    component: TemplateComponent
   }
 ];
 

@@ -86,13 +86,13 @@ export class ProductService {
     );
   }
   userId: number = 0;
-  buyResume(templateDocumentId: number) {
+  buyResume() {
     const boughtResume =
     {
-      PersonName: this.userProfileService.data[0].firstName + this.userProfileService.data[0].lastName,
-      PersonSummary: this.userProfileService.data[0].phoneNumber,
+      PersonName: this.selectedTemplateDocument.name,
+      PersonSummary: this.selectedTemplateDocument.price.toString(),
       UserId: Number(this.userId),
-      TemplateDocumentId: Number(templateDocumentId)
+      TemplateDocumentId: Number(this.selectedTemplateDocument.id)
     }
     this.spinner.show();
     this.http.post('http://localhost:3456/api/Resume/CreateResume', boughtResume).subscribe((result) => {

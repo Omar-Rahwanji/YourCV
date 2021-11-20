@@ -32,6 +32,7 @@ import { WebsiteInfoComponent } from './website-info/website-info.component';
 import { EditWebsiteComponent } from './edit-website/edit-website.component';
 import { ReportMonthlyComponent } from './report-monthly/report-monthly.component';
 import { ReportFinancialComponent } from './report-financial/report-financial.component';
+import { InboxComponent } from './inbox/inbox.component';
 
 
 @NgModule({
@@ -56,7 +57,8 @@ import { ReportFinancialComponent } from './report-financial/report-financial.co
     WebsiteInfoComponent,
     EditWebsiteComponent,
     ReportMonthlyComponent,
-    ReportFinancialComponent
+    ReportFinancialComponent,
+    InboxComponent
     
   ],
   imports: [

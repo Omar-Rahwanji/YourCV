@@ -14,7 +14,7 @@ export class AdminService {
   constructor(private http:HttpClient,private spiner :NgxSpinnerService,private router:Router,public tostr:ToastrService) { }
   selectedUser:any=[{}]
   data:any=[{}]
-
+  contactUsData:any=[{}]
   getAll(){
     return this.http.get('http://localhost:3456/api/User/GetAllUser')
   }
@@ -72,5 +72,16 @@ export class AdminService {
     }, err => {
       this.tostr.error(' Not Uploaded');
     })
+    }
+
+    getContactInbox(){
+      this.spiner.show();
+      this.http.get('http://localhost:3456/api/ContactUs/GetAllContactUs').subscribe((data:any)=>{
+        this.contactUsData=data;
+        this.spiner.hide();
+      },err=>{
+        this.spiner.hide();
+        this.tostr.error(err.status);
+      })  
     }
 }

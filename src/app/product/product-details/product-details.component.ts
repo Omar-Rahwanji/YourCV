@@ -35,7 +35,7 @@ export class ProductDetailsComponent implements OnInit {
 
       dialogRef.afterClosed().subscribe(result => {
         console.log(`Dialog result: ${result}`);
-        this.productService.buyResume(this.productService.selectedTemplateDocument.id);
+        this.productService.buyResume();
       });
     }
     else
