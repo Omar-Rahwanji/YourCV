@@ -23,6 +23,7 @@ export class EditWebsiteComponent implements OnInit {
   constructor(public websiteservice:WebsiteserviceService) { }
 
   ngOnInit(): void {
+    debugger
     this.websiteservice.getWebsiteById(1)
   }
 
