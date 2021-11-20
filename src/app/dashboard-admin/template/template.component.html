@@ -73,7 +73,7 @@
             <h3 class="text-[15px] leading-[23px]">{{ template?.price }}</h3>
           </mat-card-header>
           <mat-card-actions>
-            <a mat-stroked-button (click)="EditTemplate(template.id)" class="px-5">Edit</a>
+            <a mat-stroked-button [routerLink]="['/dashboard-admin/edittemplate',template.id]" class="px-5">Edit</a>
             <button mat-button (click)="DeleteTemplate(template.id)">Delete</button>
           </mat-card-actions>
         </mat-card>
