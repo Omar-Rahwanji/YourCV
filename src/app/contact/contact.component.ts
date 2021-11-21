@@ -47,5 +47,6 @@ export class ContactComponent implements OnInit {
 
     }
     this.contactUsService.CreateContactUs(SaveData);
+    this.ContactForm.reset();
   }
 }
