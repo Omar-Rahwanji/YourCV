@@ -13,12 +13,6 @@ export class ProductService {
 
   constructor(private spinner: NgxSpinnerService, private toastr: ToastrService, private http: HttpClient, private homeService: HomeService, private userProfileService: ProfileUserService) {
     this.homeService.getWebPageData();
-    let StringToken = localStorage.getItem('token');
-    if (StringToken != null) {
-      let Token: any = jwtDecode(StringToken);
-      this.userId = Token.nameid;
-      this.userProfileService.getUserById(this.userId);
-    }
   }
 
   templateDocuments: any = [];
@@ -87,6 +81,12 @@ export class ProductService {
   }
   userId: number = 0;
   buyResume() {
+    let StringToken = localStorage.getItem('token');
+    if (StringToken != null) {
+      let Token: any = jwtDecode(StringToken);
+      this.userId = Token.nameid;
+      this.userProfileService.getUserById(this.userId);
+    }
     const boughtResume =
     {
       PersonName: this.selectedTemplateDocument.name,
@@ -95,6 +95,7 @@ export class ProductService {
       TemplateDocumentId: Number(this.selectedTemplateDocument.id)
     }
     this.spinner.show();
+    console.log(boughtResume)
     this.http.post('http://localhost:3456/api/Resume/CreateResume', boughtResume).subscribe((result) => {
       this.toastr.success('Bought Successfuly 😁');
       this.spinner.hide();
