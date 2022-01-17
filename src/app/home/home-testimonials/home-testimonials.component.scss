@@ -1,0 +1,49 @@
+/* Testimonials Style*/
+.carousel .owl-carousel .owl-item img {
+  width: auto;
+  margin-top: 2rem;
+}
+
+.carousel .author-img {
+  width: 100%;
+  top: 0;
+}
+
+  .carousel .author-img img {
+      width: 8rem !important;
+      height: auto;
+      border-radius: 100%;
+  }
+
+.carousel .testi-text {
+  font-size: 1.25rem;
+  line-height: 2rem;
+}
+
+.carousel .testi-heading {
+  font-weight: 700;
+}
+
+.carousel .hh {
+  letter-spacing: 5px;
+}
+
+.carousel .bg-commo {
+  background: url(https://annedece.sirv.com/Images/commo.png) no-repeat right bottom;
+}
+
+.carousel {
+  box-shadow: 0 0 50px #FBF37C;
+  border-radius: 20px;
+  margin: 4rem 0;
+  height: 22rem;
+}
+
+.carousel-indicators button{
+  background-color: #999;
+  background-color: rgba(70, 70, 70, 0.25);
+}
+
+.carousel-indicators .active {
+  background-color: #444;
+}

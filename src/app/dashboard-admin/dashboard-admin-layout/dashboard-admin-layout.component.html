@@ -1,0 +1,194 @@
+<div>
+  <mat-sidenav-container class="kl-sidenav-container">
+    <mat-sidenav #sidenav [opened]="false" [mode]="'over'" [fixedInViewport]="isLessThenLargeDevice">
+      <div class="rounded-md border overflow-hidden w-72">
+        <div class="user text-center bg-primary py-10 px-5"  *ngFor="let user of adminservice.data">
+          <img class="ml-auto mr-auto" src="{{getImagePath(user.personalPhoto)}}"  alt="" />
+          <h4 class="text-base text-white mt-3" >{{user.firstName}}</h4>
+        </div>
+        <mat-nav-list class="_sidenav">
+          <a
+            mat-list-item
+            routerLink="/dashboard-admin/inbox"
+            [routerLinkActiveOptions]="{ exact: true }"
+            routerLinkActive="bg-gray-200"
+            class="font-semibold text-gray-500 hover:text-primary"
+            ><mat-icon class="mr-2">inbox</mat-icon> Inbox</a
+          >
+          <a
+            mat-list-item
+            routerLink="/dashboard-admin/profile"
+            routerLinkActive="bg-gray-200"
+            class="font-semibold text-gray-500 hover:text-primary"
+            ><mat-icon class="mr-2">account_circle</mat-icon> View my profile</a
+          >
+          <a
+            mat-list-item
+            routerLink="/dashboard-admin/template "
+            routerLinkActive="bg-gray-200"
+            class="font-semibold text-gray-500 hover:text-primary"
+            ><mat-icon class="mr-2">article</mat-icon> Template</a
+          >
+          <a
+            mat-list-item
+            routerLink="/dashboard-admin/role"
+            routerLinkActive="bg-gray-200"
+            class="font-semibold text-gray-500 hover:text-primary"
+            ><mat-icon class="mr-2">article</mat-icon> Role</a
+          >
+          <a
+          mat-list-item
+          routerLink="/dashboard-admin/user"
+          routerLinkActive="bg-gray-200"
+          class="font-semibold text-gray-500 hover:text-primary"
+          ><mat-icon class="mr-2">supervised_user_circle</mat-icon> Users</a
+        >
+        <a
+        mat-list-item
+        routerLink="/dashboard-admin/website"
+        routerLinkActive="bg-gray-200"
+        class="font-semibold text-gray-500 hover:text-primary"
+        ><mat-icon class="mr-2">info</mat-icon> Website Information</a
+      >
+        <a
+        mat-list-item
+        routerLink="/dashboard-admin/permission"
+        routerLinkActive="bg-gray-200"
+        class="font-semibold text-gray-500 hover:text-primary"
+        ><mat-icon class="mr-2">supervised_user_circle</mat-icon> Permission</a
+      >
+      <a
+                  mat-list-item
+                  routerLink="/dashboard-admin/monthlyreport"
+                  routerLinkActive="bg-gray-200"
+                  class="font-semibold text-gray-500 hover:text-primary"
+                  ><mat-icon class="mr-2">receipt</mat-icon> Monthly Report</a
+                >
+
+                <a
+                  mat-list-item
+                  routerLink="/dashboard-admin/financialyReport"
+                  routerLinkActive="bg-gray-200"
+                  class="font-semibold text-gray-500 hover:text-primary"
+                  ><mat-icon class="mr-2">receipt</mat-icon> Financial Report</a
+                >
+          <a (click)="onLogout()" mat-list-item class="font-semibold text-gray-500 hover:text-primary"><mat-icon class="mr-2">logout</mat-icon> Logout</a>
+        </mat-nav-list>
+      </div>
+    </mat-sidenav>
+    <mat-sidenav-content>
+      <header class="ll_header bg-gray-50 shadow">
+        <div class="container">
+          <div class="flex items-center">
+            <div class="flex items-center">
+              <a class="logo" [routerLink]="['']"><img src="assets/images/logo.png" alt="Logo" /></a>
+            </div>
+            <button
+              *ngIf="isLessThenLargeDevice"
+              (click)="sidenav.toggle()"
+              class="_sidenav__toggler ml-3 ms-sm-3"
+              mat-icon-button
+            >
+              <mat-icon>menu</mat-icon>
+            </button>
+            <div class="items-center flex ml-auto">
+              <button mat-icon-button>
+                <mat-icon>notifications</mat-icon>
+              </button>
+              <button mat-icon-button>
+                <mat-icon>account_circle</mat-icon>
+              </button>
+            </div>
+          </div>
+        </div>
+      </header>
+      
+      <div>
+        <div class="container">
+          <div class="grid grid-cols-12 gap-8">
+            <div class="col-span-3 hidden xl:block">
+              <div class="py-5 min-h-screen">
+                <div class="rounded-md border overflow-hidden h-full">
+                  <div class="user text-center bg-primary py-10 px-5" *ngFor="let user of adminservice.data">
+                    <img class="ml-auto mr-auto" src="{{getImagePath(user.personalPhoto)}}"  alt="" />
+                    <h4 class="text-white mt-3">{{user.firstName}}</h4>
+                  </div>
+                  <mat-nav-list class="_sidenav">
+                    <a
+                      mat-list-item
+                      routerLink="/dashboard-admin/inbox"
+                      [routerLinkActiveOptions]="{ exact: true }"
+                      routerLinkActive="bg-gray-200"
+                      class="font-semibold text-gray-500 hover:text-primary"
+                      ><mat-icon class="mr-2">inbox</mat-icon> Inbox</a
+                    >
+                    <a
+                      mat-list-item
+                      routerLink="/dashboard-admin/profile"
+                      routerLinkActive="bg-gray-200"
+                      class="font-semibold text-gray-500 hover:text-primary"
+                      ><mat-icon class="mr-2">account_circle</mat-icon> View my profile</a
+                    >
+                    <a
+                      mat-list-item
+                      routerLink="/dashboard-admin/template"
+                      routerLinkActive="bg-gray-200"
+                      class="font-semibold text-gray-500 hover:text-primary"
+                      ><mat-icon class="mr-2">list</mat-icon>Template</a
+                    >
+                    <a
+                      mat-list-item
+                      routerLink="/dashboard-admin/role"
+                      routerLinkActive="bg-gray-200"
+                      class="font-semibold text-gray-500 hover:text-primary"
+                      ><mat-icon class="mr-2">article</mat-icon> Role</a
+                    >
+                    <a
+                    mat-list-item
+                    routerLink="/dashboard-admin/user"
+                    routerLinkActive="bg-gray-200"
+                    class="font-semibold text-gray-500 hover:text-primary"
+                    ><mat-icon class="mr-2">supervised_user_circle</mat-icon> Users</a
+                  >
+                  <a
+                  mat-list-item
+                  routerLink="/dashboard-admin/website"
+                  routerLinkActive="bg-gray-200"
+                  class="font-semibold text-gray-500 hover:text-primary"
+                  ><mat-icon class="mr-2">info</mat-icon> Website Information</a
+                >
+                  <a
+                    mat-list-item
+                    routerLink="/dashboard-admin/permission"
+                    routerLinkActive="bg-gray-200"
+                    class="font-semibold text-gray-500 hover:text-primary"
+                    ><mat-icon class="mr-2">lock_open</mat-icon> Permission</a
+                  >
+                  <a
+                  mat-list-item
+                  routerLink="/dashboard-admin/monthlyreport"
+                  routerLinkActive="bg-gray-200"
+                  class="font-semibold text-gray-500 hover:text-primary"
+                  ><mat-icon class="mr-2">receipt</mat-icon> Monthly Report</a
+                >
+                <a
+                  mat-list-item
+                  routerLink="/dashboard-admin/financialyReport"
+                  routerLinkActive="bg-gray-200"
+                  class="font-semibold text-gray-500 hover:text-primary"
+                  ><mat-icon class="mr-2">receipt</mat-icon> Financial Report</a
+                >
+                    <a (click)="onLogout()" mat-list-item class="font-semibold text-gray-500 hover:text-primary"><mat-icon class="mr-2">logout</mat-icon> Logout</a>
+                  </mat-nav-list>
+                </div>
+              </div>
+            </div>
+            <div class="col-span-12 xl:col-span-9 py-10">
+              <router-outlet></router-outlet>
+            </div>
+          </div>
+        </div>
+      </div>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+</div>

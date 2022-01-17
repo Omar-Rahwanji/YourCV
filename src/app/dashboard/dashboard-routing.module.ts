@@ -4,7 +4,8 @@ import { DashboardIndexComponent } from './dashboard-index/dashboard-index.compo
 import { DashboardLayoutComponent } from './dashboard-layout/dashboard-layout.component';
 import { DashboardOrderComponent } from './dashboard-order/dashboard-order.component';
 import { DashboardProfileComponent } from './dashboard-profile/dashboard-profile.component';
-import { DashboardSavedItemComponent } from './dashboard-saved-item/dashboard-saved-item.component';
+import { EditpageComponent } from './editpage/editpage.component';
+
 
 const DashboardChildrenRoute: Routes = [
   {
@@ -12,10 +13,10 @@ const DashboardChildrenRoute: Routes = [
     pathMatch: 'full',
     component: DashboardIndexComponent
   },
-  {
-    path: 'saved-items',
-    component: DashboardSavedItemComponent
-  },
+  // {
+  //   path: 'saved-items',
+  //   component: DashboardSavedItemComponent
+  // },
   {
     path: 'profile',
     component: DashboardProfileComponent
@@ -23,6 +24,10 @@ const DashboardChildrenRoute: Routes = [
   {
     path: 'orders',
     component: DashboardOrderComponent
+  },
+  {
+   path:'editprofile/:id',
+    component:EditpageComponent
   }
 ];
 

@@ -17,7 +17,13 @@
     h1 {
       font-size: 32px;
       line-height: 50px;
+      text-shadow: 5px 2px 4px rgba(0,0,0,0.10);
     }
+  }
+  .animated-image{
+    border-radius: 5%;
+    border-top-left-radius: 30%;
+    border-bottom-right-radius: 30%;
   }
 }
 ::ng-deep #home_hero__particles {
@@ -84,6 +90,9 @@
       opacity: 0.8;
       color: #fff;
     }
+  }
+  iframe {
+    box-shadow: 0 0 5px #999;
   }
 }
 

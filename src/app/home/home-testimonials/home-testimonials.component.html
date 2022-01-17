@@ -1,0 +1,27 @@
+<div id="carouselExampleIndicators" class="carousel carousel-dark slide container mx-auto my-10  h-80" data-bs-ride="carousel">
+  <div class="carousel-inner">
+    <div *ngFor="let testimonial of this.homeService.testimonialData" class="carousel-item"
+      [ngClass]="{'active': testimonial.id==1}" data-bs-interval="3000">
+
+      <div class="bg-commo position-relative text-center">
+        <div class="author-img mt-4">
+          <img src="assets/images/logo.png" class="shadow-lg border border-light m-auto mt-4">
+
+        </div>
+        <div class="py-4 px-5 rounded">
+          <p class="testi-text"><strong>{{testimonial.title}}!</strong><br /> {{testimonial.description}}</p>
+          <h4 class="testi-heading pt-1 mb-1">{{testimonial.name}}</h4>
+          <p class="mb-1 small font-medium hh text-uppercase text-muted">Customer</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>

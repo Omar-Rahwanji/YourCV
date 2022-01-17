@@ -1,0 +1,83 @@
+<div>
+  <div>
+    <button mat-button class="newtemplate" (click)="createTemplate()">New Template</button>
+  </div>
+  <div class="filter flex items-center mb-5">
+    <h5>Templates</h5>
+    <div class="flex items-center ml-auto">
+      <button [class.text-accent]="view === 'grid'" (click)="view = 'grid'" mat-icon-button class="view__btn"><mat-icon>grid_view</mat-icon></button>
+      <button [class.text-accent]="view === 'list'" (click)="view = 'list'" mat-icon-button class="view__btn"><mat-icon>list_alt</mat-icon></button>
+    </div>
+  </div>
+  <div>
+    <div *ngIf="view === 'list'" class="table-inside">
+      <div class="flex flex-col border ltLg:responsive">
+        <div class="flex items-center p-4 border-b hover:bg-blue-100">
+          <div class="w-4/12 font-medium"><div class="pl-16 ml-3">Template Name</div></div>
+<!--           <div class="w-2/12 font-medium text-center">Template Image</div>
+ -->          <div class="w-2/12 font-medium text-center" style="margin-left: 133px;">Price</div>
+         <!--  <div class="w-2/12 font-medium">Rating</div>
+          <div class="w-1/12 font-medium">Feedback</div> -->
+          <div class="w-1/12"></div>
+        </div>
+        <div class="flex items-center p-4 border-b hover:bg-blue-100" *ngFor="let template of templateservice.data | slice: 0:9">
+          <div class="w-6/12">
+              <h6 class="flex-auto" style="margin-left: 71px;color: #6b7280;">{{ template?.name }}</h6>
+             <!--  <div class="max-h-16 w-16 flex-none mr-3 border" style="margin-left: 320px; margin-top: -19 px;" *ngIf="template?.coverImage">
+                <img class="e2e-trusted-url"  src= "{{getImagePath(template.coverImage)}}"  alt="img">
+
+             </div> -->
+            
+          </div>
+          <div class="w-2/12 text-center" style="color: #6b7280;">${{template?.price}}</div>
+         <!--  <div class="w-2/12">
+            <div class="flex items-center">
+              <mat-icon class="mr-1 text-lg leading-4 h-4 w-4 text-yellow-500">star_rate</mat-icon>
+              {{product?.rating}}
+            </div>
+          </div> -->
+        <!--   <div class="w-1/12">
+            <div class="flex items-center">
+              <mat-icon class="mr-1 text-lg leading-4 h-4 w-4">feedback</mat-icon>
+              {{product?.feedback}}
+            </div>
+          </div> -->
+          <div class="w-1/12 text-right" style="margin-left: 167px;">
+            <button class="action_icon__btn" mat-icon-button [matMenuTriggerFor]="menu">
+              <mat-icon>more_vert</mat-icon>
+            </button>
+            <mat-menu #menu="matMenu" xposition="before">
+              <button mat-menu-item>
+                <mat-icon>edit</mat-icon>
+                <button [routerLink]="['/dashboard-admin/edittemplate',template.id]">Edit</button>
+<!--                 <span>Edit</span>
+ -->              </button>
+              <button mat-menu-item>
+                <mat-icon>delete</mat-icon>
+                <button (click)="DeleteTemplate(template.id)">Delete</button>
+<!--                 <span (click)="DeleteTemplate(template.id)">Delete</span>
+ -->              </button>
+            </mat-menu>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="grid grid-cols-12 gap-4" *ngIf="view === 'grid'">
+      <div class="col-span-4" *ngFor="let template of templateservice.data | slice: 0:9">
+        <mat-card>
+         <!--  <img class="m-0 mb-4" mat-card-image src="{{getImagePath(template.coverImage)}}"  /> -->
+          <mat-card-header class="mx-0">
+            <h3 class="text-[15px] leading-[23px]">{{ template?.name }}</h3>
+          </mat-card-header>
+          <mat-card-header class="mx-0">
+            <h3 class="text-[15px] leading-[23px]">{{ template?.price }}</h3>
+          </mat-card-header>
+          <mat-card-actions>
+            <a mat-stroked-button [routerLink]="['/dashboard-admin/edittemplate',template.id]" class="px-5">Edit</a>
+            <button mat-button (click)="DeleteTemplate(template.id)">Delete</button>
+          </mat-card-actions>
+        </mat-card>
+      </div>
+    </div>  
+  </div>
+</div>

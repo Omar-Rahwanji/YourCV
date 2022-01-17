@@ -1,0 +1,42 @@
+<h2>Edit Website</h2>
+<form [formGroup]="formGroup" *ngFor="let website of websiteservice.data">
+  <div>
+    <h6 hidden>{{website.id}}</h6>
+    <div>
+      <mat-form-field class="example-full-width">
+        <!--             <mat-label>Template Name</mat-label>
+ --> <input matInput style="font-size: large;" formControlName="name" ngModel="{{website.name}}"
+          placeholder="Website Name ">
+        <!-- <mat-error *ngIf="registerForm.controls.fullName.hasError('required')">
+            fullName is <strong>required</strong>
+            </mat-error> -->
+      </mat-form-field>
+    </div>
+
+    <div>
+      <mat-form-field class="example-full-width">
+        <!--             <mat-label>Template Price</mat-label>
+ --> <input matInput style="font-size: large;" ngModel="{{website.title}}" formControlName="title" placeholder="Title">
+        <!--   <mat-error *ngIf="formGroup.controls.Price.hasError('required')">
+            Price is <strong>required</strong>
+            </mat-error> -->
+      </mat-form-field>
+    </div>
+    <div>
+      <mat-form-field class="example-full-width">
+        <!--             <mat-label>Template Price</mat-label>
+   --> <input matInput style="font-size: large;" ngModel="{{website.headLine}}" formControlName="headLine"
+          placeholder="HeadLine">
+        <!--   <mat-error *ngIf="formGroup.controls.Price.hasError('required')">
+              Price is <strong>required</strong>
+              </mat-error> -->
+      </mat-form-field>
+    </div>
+  </div>
+
+
+</form>
+<div>
+  <button mat-button [routerLink]="['/dashboard-admin/website']" class="cancle">Cancel</button>
+  <button class="save" mat-button cdkFocusInitial (click)="UpdateWebsite()">Update</button>
+</div>

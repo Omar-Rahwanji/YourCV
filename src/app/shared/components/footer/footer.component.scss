@@ -5,6 +5,7 @@
 ._nav {
     &__link {
         margin-right: 30px;
+        cursor: pointer;
         &:last-child {
             margin-right: 0;
         }

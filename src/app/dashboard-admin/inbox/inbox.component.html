@@ -1,0 +1,47 @@
+<div>
+  <h5 class="mb-3 font-medium">Inbox</h5>
+  <div class="table-inside">
+    <table class="order-table table-auto ltMd:responsive">
+      <thead>
+        <tr class="border text-left">
+          <th>
+            <span class="text-gray-800">Name</span>
+          </th>
+          <th>
+            <span class="text-gray-800">Email</span>
+          </th>
+          <th>
+            <span class="text-gray-800">Phone Number</span>
+          </th>
+
+          <th>
+            <span class="text-gray-800"> Subject</span>
+          </th>
+
+          <th>
+            <span class="text-gray-800">Message</span>
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let message of this.adminService.contactUsData" class="border">
+          <td>
+            {{message.name}}
+          </td>
+          <td>
+            {{message.email}}
+          </td>
+          <td>
+            {{message.phoneNumber}}
+          </td>
+          <td>
+            {{message.subject}}
+          </td>
+          <td>
+            {{message.message}}
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

@@ -1,0 +1,36 @@
+<div>
+	<h5 class="mb-3 font-medium">Website Information</h5>
+	<div class="table-inside">
+		<table class="order-table table-auto ltMd:responsive">
+			<thead>
+				<tr class="border text-left">
+					<th>
+						<span class="text-gray-800"> Name</span>
+					</th>
+					<th>
+						<span class="text-gray-800">Title</span>
+					</th>
+          <th>
+            <span class="text-gray-800">Head Line</span>
+          </th>
+					<th class="text-right">Action</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr *ngFor="let info of websiteservice.data "   class="border">
+					<td>
+					{{info.name}}
+					</td>
+					<td>
+						{{info.title}}
+					</td>
+          <td>
+            {{info.headLine}}
+          </td>
+				<button [routerLink]="['/dashboard-admin/editwebsite']">Edit</button>
+				</tr>
+			</tbody>
+			
+		</table>
+	</div>
+</div>

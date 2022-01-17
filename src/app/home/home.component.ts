@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { HomeService } from '../service/home.service';
 
 @Component({
   selector: 'll-home',
@@ -24,7 +25,9 @@ export class HomeComponent implements OnInit {
       }
     }
   };
-  constructor() {}
+  constructor(public homeService: HomeService) { }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.homeService.getWebPageData();
+  }
 }

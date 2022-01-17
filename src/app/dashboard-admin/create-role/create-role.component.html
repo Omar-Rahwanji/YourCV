@@ -1,0 +1,16 @@
+<h1 mat-dialog-title>Create Role</h1>
+<form  [formGroup]="formGroup">
+  <div>
+    <mat-form-field >
+      <mat-label>Role Name</mat-label>
+      <input matInput formControlName="Name" value="role.name"  placeholder="Role Name ">
+      <!-- <mat-error *ngIf="registerForm.controls.fullName.hasError('required')">
+      fullName is <strong>required</strong>
+      </mat-error> -->
+      </mat-form-field>
+  </div>
+  <div mat-dialog-actions>
+    <button mat-button mat-dialog-close class="cancle">Cancle</button>
+    <button mat-button [mat-dialog-close]="true" style="margin-left: 46px;" cdkFocusInitial (click)="saveItem()">Save</button>
+  </div>
+</form>

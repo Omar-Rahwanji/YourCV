@@ -1,0 +1,45 @@
+<h2 >Update Template</h2>
+    <form [formGroup]="formGroup" >
+      <div > 
+        <!-- <h6 hidden>{{template.id}}</h6>       -->  
+        <div>
+          <mat-form-field class="example-full-width">
+<!--             <mat-label>Template Name</mat-label>
+ -->            <input matInput  style="font-size: large;" formControlName="Name" ngModel="{{this.templateservice.selectTemplate.name}}" placeholder="Template Name ">
+
+            <!-- <mat-error *ngIf="registerForm.controls.fullName.hasError('required')">
+            fullName is <strong>required</strong>
+            </mat-error> -->
+            </mat-form-field>
+        </div>
+        {{this.productService.selectedTemplateDocument.name}}
+        <div>
+          <mat-form-field class="example-full-width">
+<!--             <mat-label>Template Price</mat-label>
+ -->            <input matInput   style="font-size: large;" ngModel="{{this.templateservice.selectTemplate.price}}" formControlName="Price" placeholder="Template Price" >
+
+          <!--   <mat-error *ngIf="formGroup.controls.Price.hasError('required')">
+            Price is <strong>required</strong>
+            </mat-error> -->
+            </mat-form-field>
+        </div>
+
+        <div class="max-h-16 w-16 flex-none mr-3 border" >
+          <img  src="{{getImagePath(this.templateservice.selectTemplate.coverImage)}}" alt="">
+
+        </div>
+        <div class="col-md-3">
+          <input type="file" #file placeholder="Choose Image" 
+             formControlName="coverImage" (change)="uploadFile(file.files)" 
+          style="display:none;">
+          <button type="button" class="btn btn-success" 
+          (click)="file.click()">Upload Image</button>
+        </div>
+      </div>
+      
+       
+  </form>
+<div >
+  <button mat-button [routerLink]="['/dashboard-admin']" class="cancle">Cancel</button>
+  <button class="save" mat-button  cdkFocusInitial (click)="UpdateItem()">Update</button>
+</div>
